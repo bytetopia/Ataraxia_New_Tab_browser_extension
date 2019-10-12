@@ -7,7 +7,7 @@
 - 支持多个搜索引擎
 - 极简
 
-[sample(images/sample.png)
+![sample](images/sample.png)
 
 ## 安装
 

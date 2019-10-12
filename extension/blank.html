@@ -1,0 +1,97 @@
+<html>
+ <head>
+  <title>New Tab</title>
+  <style>
+  body {
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+  .block {
+    padding: 10%;
+  }
+  .bottom {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    color: white;
+  }
+  .search-logo {
+    float:left;
+    height: 50px;
+  }
+  .search-logo-google {
+    height: 40px;
+    padding: 5px 0;
+  }
+  .search-logo-baidu {
+    height: 70px;
+    margin-top: -20px;
+  }
+  .search-logo-360 {
+    height: 40px;
+    padding: 5px 0;
+  }
+  .search-input {
+    float:left;
+    margin: 0 30px;
+    height: 50px;
+    width: 400px;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 10px;
+    outline: none;
+  }
+  </style>
+ </head>
+ <body id="main-body">
+  <div class="block">
+
+    <!-- Google search box  -->
+    <div class="search" id="search-box-0">
+      <form method="get" action="https://google.com/search">
+        <img class="search-logo search-logo-google" src="icons/google.png" title="click to switch search engine"/>
+        <input type="text" name="q" class="search-input" autofocus="autofocus" placeholder="Search with Google" />
+      </form>
+    </div>
+
+    <!-- Bing search box -->
+    <div class="search" id="search-box-1" style="display:none;">
+      <form method="get" action="https://bing.com/search">
+        <img class="search-logo search-logo-bing" src="icons/bing.png" title="click to switch search engine"/>
+        <input type="text" name="q" class="search-input" autofocus="autofocus" placeholder="Search with Bing"/>
+      </form>
+    </div>
+
+    <!-- Baidu search box -->
+    <div class="search" id="search-box-2" style="display:none;">
+      <form method="get" action="https://www.baidu.com/s">
+        <img class="search-logo search-logo-baidu" src="icons/baidu.png" title="click to switch search engine"/>
+        <input type="text" name="wd" class="search-input" autofocus="autofocus" placeholder="Search with Baidu"/>
+      </form>
+    </div>
+
+    <!-- Sogou search box -->
+    <div class="search" id="search-box-3" style="display:none;">
+      <form method="get" action="https://www.sogou.com/web">
+        <img class="search-logo search-logo-sogou" src="icons/sogou.png" title="click to switch search engine"/>
+        <input type="text" name="query" class="search-input" autofocus="autofocus" placeholder="Search with Sogou"/>
+      </form>
+    </div>
+
+    <!-- 360 search box -->
+    <div class="search" id="search-box-4" style="display:none;">
+      <form method="get" action="https://www.so.com/s">
+        <img class="search-logo search-logo-360" src="icons/360.png" title="click to switch search engine"/>
+        <input type="text" name="q" class="search-input" autofocus="autofocus" placeholder="Search with 360"/>
+      </form>
+    </div>
+
+  </div>
+  <div class="bottom">
+    <p id="background-text"></p>
+  </div>
+  <script src="script.js"></script>
+ </body>
+</html>
+

@@ -11,9 +11,11 @@
 
 ## 安装
 
-下载本仓库的 zip 文件，或者 git clone 仓库。
+方法 1）下载 `crx` 文件夹中的 crx 文件，打开 Chrome - 扩展程序，将 crx 文件拖进去即可安装。
 
-打开 Chrome - 扩展程序，启用开发者模式，点击 `加载已解压的扩展程序`，选择本仓库下的 `extension` 目录即可
+
+方法 2）下载本仓库的 zip 文件，或者 git clone 仓库。 打开 Chrome - 扩展程序，启用开发者模式，点击 `加载已解压的扩展程序`，选择本仓库下的 `extension` 目录即可。
+
 
 ## 使用说明
 
@@ -36,9 +38,9 @@ Chrome new tab extension with Bing daily wallpaper as background.
 
 ## Install
 
-Download zip or git clone this repository.
+Method 1) Download .crx file in `crx` folder. Open `chrome://extensions/`, drag and drop the crx file here to install.
 
-Open `chrome://extensions/` , enable `Developer mode`. Click load unzipped extension button, select the `extension` folder.
+Method 2) Download zip or git clone this repository. Open `chrome://extensions/` , enable `Developer mode`. Click load unzipped extension button, select the `extension` folder.
 
 
 ## Usage

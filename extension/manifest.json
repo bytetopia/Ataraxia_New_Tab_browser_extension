@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "New Search Tab with Bing Wallpaper",
+  "name": "Zen - New Tab with Bing Wallpaper",
   "description": "Override the new tab page with beautiful Bing daily wallpaper. Multiple search engines supported.",
   "version": "0.1",
   "incognito": "split",

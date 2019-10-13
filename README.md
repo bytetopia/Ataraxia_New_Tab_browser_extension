@@ -1,5 +1,5 @@
 
-# 必应每日壁纸 -  Chrome 新标签页插件
+# Zen - Chrome 新标签页插件 - 必应每日壁纸
 
 功能特性：
 
@@ -31,7 +31,7 @@
 ---
 
 
-# Chrome New Tab Extension with Bing Wallpaper
+# Zen - Chrome New Tab Extension with Bing Wallpaper
 
 Chrome new tab extension with Bing daily wallpaper as background.
 

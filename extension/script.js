@@ -1,5 +1,5 @@
 
-var totalEngines = 5;
+var totalEngines = document.getElementsByClassName('search').length;
 
 function setCookieEngine(name){
 	document.cookie = "engine=" + name + ";expires=2147483647";

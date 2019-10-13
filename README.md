@@ -23,9 +23,7 @@
 
 ## 自定义
 
-修改`blank.html` 文件，可以添加更多搜索引擎。
-
-修改搜索引擎个数后，请修改 `script.js` 顶部的 `totalEngines` 变量为最新个数。
+修改 `blank.html` 文件，可以添加更多搜索引擎。
 
 
 ---
@@ -54,7 +52,6 @@ Click the search engine logo to switch between search engines.
 
 Modify `blank.html` to add new search engines.
 
-Modify the `totalEngines` variable at the top line of `script.js` if you add or delete some search engines.
 
 
 

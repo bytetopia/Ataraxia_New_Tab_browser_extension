@@ -66,3 +66,9 @@ Modify `blank.html` to add new search engines.
 
 ---
 
+# Update Log
+
+- 0.3 (2019-10-18) 增加URL缓存，避免每次打开新标签时的重复在线请求
+- 0.2（2019-10-13） 修复get提交表单时中文乱码
+- 0。1（2019-10-12）初始版本发布～
+

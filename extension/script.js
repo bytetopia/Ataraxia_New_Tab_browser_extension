@@ -129,6 +129,11 @@ function initWallpaper(){
 	}
 }
 
+function focusOnSearchInput() {
+	var input = document.getElementById('input-' + getEngineInt());
+	input.focus();
+}
+
 // init wallpaper
 initWallpaper();
 
@@ -140,4 +145,9 @@ for(var i=0; i<searchLogos.length; i++){
 
 // init engine
 initEngine();
+
+// bind body click focus event
+var main_body = document.getElementById('main-body');
+main_body.onclick = focusOnSearchInput;
+
 

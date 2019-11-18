@@ -1,9 +1,11 @@
 
-# Zen - Chrome 新标签页插件 - 必应每日壁纸
+# Ataraxia - Chrome 新标签页插件 - 必应每日壁纸
 
 ---
 
-访问网站 https://codingcat.cn/zen/ ，可下载源码或CRX文件。
+访问 Chrome 网上应用店 https://chrome.google.com/webstore/detail/clpkmadppffkkcmgmebemkdjdgngjdop 在线安装（可能需科学上网
+
+访问网站 https://codingcat.cn/ataraxia/ ，可下载源码或CRX文件，离线安装。
 
 ---
 
@@ -42,6 +44,11 @@
 
 Chrome new tab extension with Bing daily wallpaper as background.
 
+Visit Chrome Web Store to install the extension.
+
+https://chrome.google.com/webstore/detail/clpkmadppffkkcmgmebemkdjdgngjdop 
+
+
 
 ## Install
 
@@ -67,7 +74,7 @@ Modify `blank.html` to add new search engines.
 ---
 
 # Update Log
-
+- 0.5（2019-11-18）修改logo，增加安装/卸载后页面，上架Chrome商店🎉
 - 0.4（2019-11-10）点击空白处将焦点移至文本框，优化使用体验
 - 0.3 (2019-10-18) 增加URL缓存，避免每次打开新标签时的重复在线请求
 - 0.2（2019-10-13） 修复get提交表单时中文乱码

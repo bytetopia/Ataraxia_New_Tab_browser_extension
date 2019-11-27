@@ -1,48 +1,7 @@
 <html>
  <head>
   <title>New Tab</title>
-  <style>
-  body {
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-  }
-  .block {
-    padding: 10%;
-  }
-  .bottom {
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
-    color: white;
-  }
-  .search-logo {
-    float:left;
-    height: 50px;
-  }
-  .search-logo-google {
-    height: 40px;
-    padding: 5px 0;
-  }
-  .search-logo-baidu {
-    height: 70px;
-    margin-top: -20px;
-  }
-  .search-logo-360 {
-    height: 40px;
-    padding: 5px 0;
-  }
-  .search-input {
-    float:left;
-    margin: 0 30px;
-    height: 50px;
-    width: 400px;
-    border: none;
-    border-radius: 5px;
-    font-size: 15px;
-    padding: 10px;
-    outline: none;
-  }
-  </style>
+  <link rel="stylesheet" type="text/css" href="style.css"/>
  </head>
  <body id="main-body">
   <div class="block">
@@ -79,17 +38,42 @@
       </form>
     </div>
 
-    <!-- 360 search box -->
+    <!-- Yahoo search box -->
     <div class="search" id="search-box-4" style="display:none;">
+      <form method="get" action="https://search.yahoo.com/search" accept-charset="UTF-8">
+        <img class="search-logo search-logo-yahoo" src="icons/yahoo.png" title="click to switch search engine"/>
+        <input type="text" id="input-4" name="p" class="search-input" autocomplete="off" autofocus="autofocus" placeholder="Search with Yahoo!"/>
+      </form>
+    </div>
+
+    <!-- Yandex search box -->
+    <div class="search" id="search-box-5" style="display:none;">
+      <form method="get" action="https://yandex.com/search" accept-charset="UTF-8">
+        <img class="search-logo search-logo-yandex" src="icons/yandex.png" title="click to switch search engine"/>
+        <input type="text" id="input-5" name="text" class="search-input" autocomplete="off" autofocus="autofocus" placeholder="Search with Yandex"/>
+      </form>
+    </div>
+
+    <!-- Duckduckgo search box -->
+    <div class="search" id="search-box-6" style="display:none;">
+      <form method="get" action="https://duckduckgo.com/" accept-charset="UTF-8">
+        <img class="search-logo search-logo-duckduckgo" src="icons/duckduckgo.png" title="click to switch search engine"/>
+        <input type="text" id="input-6" name="q" class="search-input" autocomplete="off" autofocus="autofocus" placeholder="Search with DuckDuckGo"/>
+      </form>
+    </div>
+
+    <!-- 360 search box -->
+    <div class="search" id="search-box-7" style="display:none;">
       <form method="get" action="https://www.so.com/s" accept-charset="UTF-8">
         <img class="search-logo search-logo-360" src="icons/360.png" title="click to switch search engine"/>
-        <input type="text" id="input-4" name="q" class="search-input" autocomplete="off" autofocus="autofocus" placeholder="Search with 360"/>
+        <input type="text" id="input-7" name="q" class="search-input" autocomplete="off" autofocus="autofocus" placeholder="Search with 360"/>
       </form>
     </div>
 
   </div>
   <div class="bottom">
-    <p id="background-text"></p>
+    <div class="loading-circle" id="loading-circle"></div>
+    <p id="footer-text">Welcome to Ataraxia.</p>
   </div>
   <script src="script.js"></script>
  </body>

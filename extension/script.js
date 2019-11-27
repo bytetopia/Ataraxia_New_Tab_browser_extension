@@ -1,6 +1,8 @@
 
 var totalEngines = document.getElementsByClassName('search').length;
 
+
+// set cookie: cname = cvalue
 function setCookie(cname, cvalue) {
 	var exp_days = 365
     var d = new Date();
@@ -9,6 +11,7 @@ function setCookie(cname, cvalue) {
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 } 
 
+// get cookie string by name
 function getCookie(cname) {
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
@@ -25,6 +28,7 @@ function getCookie(cname) {
     return "";
 } 
 
+// get current search engine index
 function getEngineInt() {
 	var engine = getCookie('engine');
 	if(engine == ""){
@@ -36,10 +40,12 @@ function getEngineInt() {
 	return engine;
 }
 
+// save search engine index into cookie
 function setEngineInt(newEngine) {
 	setCookie("engine", newEngine.toString());
 }
 
+// switch to next search engine
 function switchEngine(){
 	var engine = getEngineInt();
 	// hide old
@@ -52,6 +58,7 @@ function switchEngine(){
 	setEngineInt(engine);
 }
 
+// initialize search engine when page load
 function initEngine(){
 	var engine = getEngineInt();
 	// hide others
@@ -66,37 +73,72 @@ function initEngine(){
 	box.style.display = "inline-block";
 }
 
+// get current date string 
 function getDateString() {
 	var date = new Date();
 	var result = "" + date.getFullYear() + "-" + date.getMonth() + "-" + (date.getDate() - 15);
 	return result;
 }
 
+// set wallpaper to default
 function showDefaultWallpaper() {
 	// set wallpaper
 	var body = document.getElementById('main-body');
 	body.style.backgroundImage = "url('./images/john-reign-abarintos-369080-unsplash.jpg')";
-	// set text
-	var background_text = document.getElementById('background-text');
-	background_text.innerHTML = obj.images[0].copyright;
 }
 
+// set footer text
+function setFooterText(text) {
+	var footer_text = document.getElementById('footer-text');
+	footer_text.innerHTML = text;
+}
+
+// display loading animation
+function showLoadingAnim() {
+	var circle = document.getElementById('loading-circle');
+	circle.style.display = 'inline-block';
+	// set footer text
+	setFooterText('Updating wallpaper ...');
+}
+
+// hide loading animation
+function hideLoadingAnim() {
+	var circle = document.getElementById('loading-circle');
+	circle.style.display = 'none';
+}
+
+// pre-load image from url
+// then change background image and footer text after loading is finished
+function loadAndChangeOnlineWallpaper(url, text) {
+	showDefaultWallpaper();
+	showLoadingAnim();
+	setFooterText('Updating wallpaper ...');
+	// preload wallpaper
+	var tmp_img = new Image();
+	tmp_img.src = url;
+	tmp_img.onload = function(){
+	  	// set wallpaper
+		var body = document.getElementById('main-body');
+		body.style.backgroundImage = "url('" + url + "')";
+		// set footer text
+		hideLoadingAnim();
+		setFooterText(text);
+		// update cookie
+		setCookie("wallpaper_date", getDateString());
+		setCookie("wallpaper_url", url);
+		setCookie("wallpaper_text", text);
+	};
+}
+
+// get latest wallpaper url from bing.com 
+// then load and change wallpaper
 function updateWallpaper(){
 	var xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function(){
 		if(xhr.readyState==4){
 			var obj = JSON.parse(xhr.responseText);
 			var url = 'https://bing.com' + obj.images[0].url;
-			// set wallpaper
-			var body = document.getElementById('main-body');
-			body.style.backgroundImage = "url('" + url + "')";
-			// set text
-			var background_text = document.getElementById('background-text');
-			background_text.innerHTML = obj.images[0].copyright;
-			// update cookie
-			setCookie("wallpaper_date", getDateString());
-			setCookie("wallpaper_url", url);
-			setCookie("wallpaper_text", obj.images[0].copyright);
+			loadAndChangeOnlineWallpaper(url, obj.images[0].copyright);
 		}
 		else{
 			showDefaultWallpaper();
@@ -106,29 +148,29 @@ function updateWallpaper(){
 	xhr.send(null);
 }
 
+// initialize wallpaper on page load
 function initWallpaper(){
-	// use cache data first
+	// get cache date
 	var cache_date = getCookie("wallpaper_date");
 	if(cache_date == getDateString()){
+		// if today matches cache date, get cache url and text
 		var cache_url = getCookie("wallpaper_url");
 		var cache_text = getCookie("wallpaper_text");
 		if(cache_url != "" && cache_text != ""){
-			// set wallpaper
-			var body = document.getElementById('main-body');
-			body.style.backgroundImage = "url('" + cache_url + "')";
-			// set text
-			var background_text = document.getElementById('background-text');
-			background_text.innerHTML = cache_text;
+			loadAndChangeOnlineWallpaper(cache_url, cache_text);
 		}
 		else{
+			// cache is broken, update wallpaper
 			updateWallpaper();
 		}
 	}
 	else{
+		// if today does not match cache date, update wallpaper
 		updateWallpaper();
 	}
 }
 
+// set focus to search input text box
 function focusOnSearchInput() {
 	var input = document.getElementById('input-' + getEngineInt());
 	input.focus();

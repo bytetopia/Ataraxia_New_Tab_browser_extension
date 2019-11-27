@@ -1,0 +1,79 @@
+/* main */
+body {
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+.block {
+	padding: 10%;
+}
+.bottom {
+	position: absolute;
+	bottom: 30px;
+	right: 30px;
+	color: white;
+}
+
+ /* search */
+.search-logo {
+	float:left;
+	height: 50px;
+}
+.search-logo-google {
+	height: 40px;
+	padding: 5px 0;
+}
+.search-logo-baidu {
+	height: 70px;
+	margin-top: -20px;
+}
+.search-logo-360 {
+	height: 40px;
+	padding: 5px 0;
+}
+.search-logo-yahoo {
+	height: 35px;
+	padding: 10px 0;
+}
+.search-logo-yandex {
+	height: 40px;
+	padding: 5px 0;
+}
+.search-logo-duckduckgo {
+	height: 45px;
+	padding: 3px 0;
+}
+.search-input {
+	background-color: rgba(255,255,255,0.7);
+	float:left;
+	margin: 0 30px;
+	height: 50px;
+	width: 360px;
+	border: none;
+	border-radius: 5px;
+	font-size: 15px;
+	padding: 10px;
+	outline: none;
+}
+.search-input:focus {
+	background-color: rgba(255,255,255,0.9);
+}
+
+/* loading anim */
+.loading-circle {
+	border: 2px solid #f3f3f3;
+	border-radius: 50%;
+	border-top: 2px solid #3498db;
+	width: 20px;
+	height: 20px;
+	-webkit-animation: spin 2s linear infinite;
+	animation: spin 2s linear infinite;
+	display: none;
+}   
+@-webkit-keyframes spin {
+	0% { -webkit-transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(360deg); }
+}   
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+} 

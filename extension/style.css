@@ -20,32 +20,40 @@ body {
 }
 .search-logo-google {
 	height: 40px;
-	padding: 5px 0;
+	margin: 15px 10px;
+}
+.search-logo-bing {
+	height: 50px;
+	margin: 10px;
 }
 .search-logo-baidu {
 	height: 70px;
-	margin-top: -20px;
+	margin-top: -10px;
+}
+.search-logo-sogou {
+	height: 50px;
+	margin: 10px;
 }
 .search-logo-360 {
 	height: 40px;
-	padding: 5px 0;
+	padding: 15px 10px;
 }
 .search-logo-yahoo {
 	height: 35px;
-	padding: 10px 0;
+	padding: 18px 10px;
 }
 .search-logo-yandex {
 	height: 40px;
-	padding: 5px 0;
+	padding: 15px 10px;
 }
 .search-logo-duckduckgo {
 	height: 45px;
-	padding: 3px 0;
+	padding: 10px;
 }
 .search-input {
 	background-color: rgba(255,255,255,0.7);
 	float:left;
-	margin: 0 30px;
+	margin: 10px;
 	height: 50px;
 	width: 360px;
 	border: none;
@@ -56,6 +64,46 @@ body {
 }
 .search-input:focus {
 	background-color: rgba(255,255,255,0.9);
+}
+
+/* most visited sites */
+#most-visited-div {
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	color: white;
+	text-align: right;
+}
+
+#most-visited-nav {
+	float: right;
+}
+
+#most-visited-child {
+	margin-top: 25px;
+	display: none;
+}
+
+#most-visited-child a{
+	color: white;
+	text-decoration: none;
+}
+
+#most-visited-child a:hover{
+	color: white;
+	text-decoration: none;
+}
+
+#most-visited-div:hover #most-visited-child {
+	display: block;
+	background: rgba(0, 0, 0, 0.3);
+	border-radius: 5px;
+	padding: 5px 10px;
+}
+
+#most-visited-child li{
+	list-style: none;
+	margin: 5px 0;
 }
 
 /* loading anim */

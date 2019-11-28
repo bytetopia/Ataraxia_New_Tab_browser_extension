@@ -51,10 +51,13 @@ function switchEngine(){
 	// hide old
 	var box = document.getElementById("search-box-" + engine);
 	box.style.display = "none";
+	var query = document.getElementById("input-" + engine).value;
 	// show new
 	engine = (engine + 1) % totalEngines;
 	box = document.getElementById("search-box-" + engine);
 	box.style.display = "inline-block";
+	document.getElementById("input-" + engine).value = query;
+	// save cookie
 	setEngineInt(engine);
 }
 
@@ -191,5 +194,23 @@ initEngine();
 // bind body click focus event
 var main_body = document.getElementById('main-body');
 main_body.onclick = focusOnSearchInput;
+
+
+// build top sites drop down list
+function buildTopSitesList(mostVisitedURLs) {
+	var popupDiv = document.getElementById('most-visited-child');
+	var ul = popupDiv.appendChild(document.createElement('ul'));
+
+	for (var i = 0; i < mostVisitedURLs.length; i++) {
+		var li = ul.appendChild(document.createElement('li'));
+		var a = li.appendChild(document.createElement('a'));
+		a.href = mostVisitedURLs[i].url;
+		// a.title = mostVisitedURLs[i].title;
+		a.appendChild(document.createTextNode(mostVisitedURLs[i].title));
+	}
+}
+
+// init top sites list
+chrome.topSites.get(buildTopSitesList);
 
 

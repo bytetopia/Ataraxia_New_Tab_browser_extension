@@ -79,7 +79,7 @@ function initEngine(){
 // get current date string 
 function getDateString() {
 	var date = new Date();
-	var result = "" + date.getFullYear() + "-" + date.getMonth() + "-" + (date.getDate() - 15);
+	var result = "" + date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate();
 	return result;
 }
 
@@ -135,7 +135,7 @@ function loadAndChangeOnlineWallpaper(url, text) {
 
 // get latest wallpaper url from bing.com 
 // then load and change wallpaper
-function updateWallpaper(){
+function updateWallpaper(idx){
 	var xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function(){
 		if(xhr.readyState==4){
@@ -147,7 +147,7 @@ function updateWallpaper(){
 			showDefaultWallpaper();
 		}
 	}
-	xhr.open('get','https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=zh-CN');
+	xhr.open('get','https://www.bing.com/HPImageArchive.aspx?format=js&n=1&mkt=zh-CN&idx=' + idx);
 	xhr.send(null);
 }
 
@@ -164,14 +164,32 @@ function initWallpaper(){
 		}
 		else{
 			// cache is broken, update wallpaper
-			updateWallpaper();
+			updateWallpaper(0);
 		}
 	}
 	else{
 		// if today does not match cache date, update wallpaper
-		updateWallpaper();
+		updateWallpaper(0);
+		// reset old wallpaper days offset cookie
+		setCookie("offset_idx", "0");
 	}
 }
+
+// if user want to show old wallpapers.
+function switchOldWallpaper(){
+	var MAX_OLD_DAYS = 7;
+	// calculate idx
+	var cache_idx = getCookie("offset_idx");
+	if (cache_idx === "") {
+		cache_idx = 0;
+	}
+	cache_idx = parseInt(cache_idx);
+	cache_idx = (cache_idx + 1) % MAX_OLD_DAYS;
+	setCookie("offset_idx", cache_idx.toString());
+	// reload wallpaper
+	updateWallpaper(cache_idx);
+}
+
 
 // set focus to search input text box
 function focusOnSearchInput() {
@@ -195,22 +213,7 @@ initEngine();
 var main_body = document.getElementById('main-body');
 main_body.onclick = focusOnSearchInput;
 
-
-// build top sites drop down list
-function buildTopSitesList(mostVisitedURLs) {
-	var popupDiv = document.getElementById('most-visited-child');
-	var ul = popupDiv.appendChild(document.createElement('ul'));
-
-	for (var i = 0; i < mostVisitedURLs.length; i++) {
-		var li = ul.appendChild(document.createElement('li'));
-		var a = li.appendChild(document.createElement('a'));
-		a.href = mostVisitedURLs[i].url;
-		// a.title = mostVisitedURLs[i].title;
-		a.appendChild(document.createTextNode(mostVisitedURLs[i].title));
-	}
-}
-
-// init top sites list
-chrome.topSites.get(buildTopSitesList);
-
+// bind switch old wallpaper click event
+var change_wp_btn = document.getElementById('change-wallpaper');
+change_wp_btn.onclick = switchOldWallpaper;
 

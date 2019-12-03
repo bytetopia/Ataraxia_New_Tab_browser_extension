@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Ataraxia - New Tab with Daily Wallpaper",
   "description": "Override the new tab page with beautiful daily wallpaper. Multiple search engines supported.",
-  "version": "0.7",
+  "version": "0.8",
   "incognito": "split",
   "chrome_url_overrides": {
     "newtab": "blank.html"
@@ -14,9 +14,7 @@
     "128": "./icon.png"
   },
   "permissions": [
-  	"*://*.bing.com/*",
-    "topSites",
-    "tabs"
+  	"*://*.bing.com/*"
   ],
   "background": {
     "scripts": ["background.js"]

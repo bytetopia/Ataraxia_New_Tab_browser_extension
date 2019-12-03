@@ -66,8 +66,8 @@ body {
 	background-color: rgba(255,255,255,0.9);
 }
 
-/* most visited sites */
-#most-visited-div {
+/*  top right function zone */
+#functions-div {
 	position: absolute;
 	top: 30px;
 	right: 30px;
@@ -75,35 +75,40 @@ body {
 	text-align: right;
 }
 
-#most-visited-nav {
+#functions-nav {
 	float: right;
 }
 
-#most-visited-child {
+#functions-child {
 	margin-top: 25px;
 	display: none;
 }
 
-#most-visited-child a{
+#functions-child a{
 	color: white;
 	text-decoration: none;
 }
 
-#most-visited-child a:hover{
+#functions-child a:hover{
 	color: white;
 	text-decoration: none;
 }
 
-#most-visited-div:hover #most-visited-child {
+#functions-div:hover #functions-child {
 	display: block;
 	background: rgba(0, 0, 0, 0.3);
 	border-radius: 5px;
 	padding: 5px 10px;
 }
 
-#most-visited-child li{
+#functions-child li{
 	list-style: none;
 	margin: 5px 0;
+}
+
+#functions-child .bottom-links svg, #functions-child .bottom-links span{
+	display: inline-block;
+	vertical-align: middle;
 }
 
 /* loading anim */
@@ -113,9 +118,11 @@ body {
 	border-top: 2px solid #3498db;
 	width: 20px;
 	height: 20px;
+	margin: 0 10px 10px 0;
 	-webkit-animation: spin 2s linear infinite;
 	animation: spin 2s linear infinite;
 	display: none;
+	float: right;
 }   
 @-webkit-keyframes spin {
 	0% { -webkit-transform: rotate(0deg); }
@@ -125,3 +132,31 @@ body {
 	0% { transform: rotate(0deg); }
 	100% { transform: rotate(360deg); }
 } 
+
+/* footer operation */
+#footer-op {
+	padding: 5px 10px;
+	border-radius: 5px;
+}
+
+#change-wallpaper {
+	padding-right: 5px;
+	display: none;
+}
+
+#footer-op svg, #footer-op span {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#footer-op:hover {
+	background: rgba(0, 0, 0, 0.3);
+}
+
+#footer-op:hover #change-wallpaper{
+	display: inline-block;
+}
+
+
+
+

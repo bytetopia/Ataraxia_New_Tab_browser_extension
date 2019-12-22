@@ -1,7 +1,9 @@
 <html>
  <head>
   <title>New Tab</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" type="text/css" href="style.css"/>
+  <link rel="stylesheet" type="text/css" href="vendor/spop/spop.min.css"/>
  </head>
  <body id="main-body">
 
@@ -10,11 +12,16 @@
       <svg t="1574947144490" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6899" width="16" height="16"><path d="M40.083 452.523h413.703V38.821H40.083v413.702z m0 531.898h413.703V570.718H40.083v413.703z m531.903-945.6v413.702h413.702V38.821H571.986z m0 945.6h413.702V570.718H571.986v413.703z" fill="#ffffff" p-id="6900"></path></svg>
     </div>
     <div id="functions-child">
+        <div id="top-sites-div"></div>
         <p class="bottom-links">
-          Ataraxia 0.8 &nbsp;&nbsp;&nbsp;&nbsp;
-
-          <a href="https://codingcat.cn/ataraxia/update.html?current=0.8"  target="_blank" title="check for updates">
+          <a id="check-update-btn" href="https://codingcat.cn/ataraxia/update.html?current=0.8"  target="_blank">
             <svg t="1575274487297" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4548" width="16" height="16"><path d="M512.860729 1023.999431a511.992605 511.992605 0 1 1 511.139284-511.992604A511.594388 511.594388 0 0 1 512.860729 1023.999431z m201.156206-609.100535L553.080592 253.962554a56.888067 56.888067 0 0 0-80.439726 0L311.704523 414.898896a56.888067 56.888067 0 0 0 80.496616 80.439727L455.972662 431.5671V739.559095a56.888067 56.888067 0 0 0 113.776134 0V431.5671l63.771523 63.771523a56.888067 56.888067 0 1 0 80.496616-80.439727z" fill="#ffffff" p-id="4549"></path></svg>
+            <span id="check-update-btn-text">Update</span>
+          </a>
+          &nbsp;&nbsp;
+          <a id="open-options-btn">
+            <svg t="1576665395057" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2296" width="16" height="16"><path d="M829.013333 553.6c1.706667-13.653333 2.986667-27.52 2.986667-41.6s-1.28-27.946667-2.986667-41.6l90.24-70.613333c8.106667-6.4 10.453333-17.92 5.12-27.306667l-85.333333-147.84c-5.333333-9.173333-16.426667-13.013333-26.026667-9.173333l-106.24 42.88c-21.973333-16.853333-46.08-31.146667-72.106666-42.026667L618.666667 103.253333c-1.92-10.026667-10.666667-17.92-21.333334-17.92h-170.666666c-10.666667 0-19.413333 7.893333-21.12 17.92l-16 113.066667a315.733333 315.733333 0 0 0-72.106667 42.026667L211.2 215.466667a21.333333 21.333333 0 0 0-26.026667 9.173333l-85.333333 147.84c-5.333333 9.173333-2.986667 20.693333 5.12 27.306667l90.026667 70.613333C193.28 484.053333 192 497.92 192 512s1.28 27.946667 2.986667 41.6l-90.026667 70.613333c-8.106667 6.4-10.453333 17.92-5.12 27.306667l85.333333 147.84c5.333333 9.173333 16.426667 13.013333 26.026667 9.173333l106.24-42.88c21.973333 16.853333 46.08 31.146667 72.106667 42.026667l16 113.066667c1.706667 10.026667 10.453333 17.92 21.12 17.92h170.666666c10.666667 0 19.413333-7.893333 21.12-17.92l16-113.066667a315.733333 315.733333 0 0 0 72.106667-42.026667l106.24 42.88a21.333333 21.333333 0 0 0 26.026667-9.173333l85.333333-147.84c5.333333-9.173333 2.986667-20.693333-5.12-27.306667l-90.026667-70.613333zM512 661.333333c-82.56 0-149.333333-66.773333-149.333333-149.333333s66.773333-149.333333 149.333333-149.333333 149.333333 66.773333 149.333333 149.333333-66.773333 149.333333-149.333333 149.333333z" p-id="2297" fill="#ffffff"></path></svg>
+             <span id="open-options-btn-text">Settings</span>
           </a>
 
         </p>
@@ -24,66 +31,10 @@
   <div class="block">
 
     <!-- Google search box  -->
-    <div class="search" id="search-box-0">
-      <form method="get" action="https://google.com/search" accept-charset="UTF-8">
-        <img class="search-logo search-logo-google" src="icons/google.png" title="click to switch search engine"/>
-        <input type="text" id="input-0" name="q" class="search-input" autocomplete="off" autofocus="autofocus" placeholder="Search with Google" />
-      </form>
-    </div>
-
-    <!-- Bing search box -->
-    <div class="search" id="search-box-1" style="display:none;">
-      <form method="get" action="https://bing.com/search" accept-charset="UTF-8">
-        <img class="search-logo search-logo-bing" src="icons/bing.png" title="click to switch search engine"/>
-        <input type="text" id="input-1" name="q" class="search-input" autocomplete="off" autofocus="autofocus" placeholder="Search with Bing"/>
-      </form>
-    </div>
-
-    <!-- Baidu search box -->
-    <div class="search" id="search-box-2" style="display:none;">
-      <form method="get" action="https://www.baidu.com/s" accept-charset="UTF-8">
-        <img class="search-logo search-logo-baidu" src="icons/baidu.png" title="click to switch search engine"/>
-        <input type="text" id="input-2" name="wd" class="search-input" autocomplete="off" autofocus="autofocus" placeholder="Search with Baidu"/>
-      </form>
-    </div>
-
-    <!-- Sogou search box -->
-    <div class="search" id="search-box-3" style="display:none;">
-      <form method="get" action="https://www.sogou.com/web" accept-charset="UTF-8">
-        <img class="search-logo search-logo-sogou" src="icons/sogou.png" title="click to switch search engine"/>
-        <input type="text" id="input-3" name="query" class="search-input" autocomplete="off" autofocus="autofocus" placeholder="Search with Sogou"/>
-      </form>
-    </div>
-
-    <!-- Yahoo search box -->
-    <div class="search" id="search-box-4" style="display:none;">
-      <form method="get" action="https://search.yahoo.com/search" accept-charset="UTF-8">
-        <img class="search-logo search-logo-yahoo" src="icons/yahoo.png" title="click to switch search engine"/>
-        <input type="text" id="input-4" name="p" class="search-input" autocomplete="off" autofocus="autofocus" placeholder="Search with Yahoo!"/>
-      </form>
-    </div>
-
-    <!-- Yandex search box -->
-    <div class="search" id="search-box-5" style="display:none;">
-      <form method="get" action="https://yandex.com/search" accept-charset="UTF-8">
-        <img class="search-logo search-logo-yandex" src="icons/yandex.png" title="click to switch search engine"/>
-        <input type="text" id="input-5" name="text" class="search-input" autocomplete="off" autofocus="autofocus" placeholder="Search with Yandex"/>
-      </form>
-    </div>
-
-    <!-- Duckduckgo search box -->
-    <div class="search" id="search-box-6" style="display:none;">
-      <form method="get" action="https://duckduckgo.com/" accept-charset="UTF-8">
-        <img class="search-logo search-logo-duckduckgo" src="icons/duckduckgo.png" title="click to switch search engine"/>
-        <input type="text" id="input-6" name="q" class="search-input" autocomplete="off" autofocus="autofocus" placeholder="Search with DuckDuckGo"/>
-      </form>
-    </div>
-
-    <!-- 360 search box -->
-    <div class="search" id="search-box-7" style="display:none;">
-      <form method="get" action="https://www.so.com/s" accept-charset="UTF-8">
-        <img class="search-logo search-logo-360" src="icons/360.png" title="click to switch search engine"/>
-        <input type="text" id="input-7" name="q" class="search-input" autocomplete="off" autofocus="autofocus" placeholder="Search with 360"/>
+    <div class="search" id="search-box">
+      <form method="get" id="search-form" action="https://google.com/search" accept-charset="UTF-8">
+        <img id="search-logo" src="icons/google.png" title="click to switch search engine"/>
+        <input type="text" name="q" id="search-input" autocomplete="off" autofocus="autofocus" placeholder="Search with Google"/>
       </form>
     </div>
 
@@ -102,7 +53,15 @@
 
   </div>
 
-  <script src="script.js"></script>
+  <script src="vendor/spop/spop.min.js"></script>
+  <script src="scripts/base.js"></script>
+  <script src="scripts/main/search.js"></script>
+  <script src="scripts/main/wallpaper.js"></script>
+  <script src="scripts/main/options.js"></script>
+  <script src="scripts/main/quick_links.js"></script>
+  <script src="scripts/main/update.js"></script>
+  <script src="scripts/main/i18n.js"></script>
+
   
  </body>
 </html>

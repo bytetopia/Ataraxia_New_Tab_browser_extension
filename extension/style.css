@@ -14,43 +14,11 @@ body {
 }
 
  /* search */
-.search-logo {
+#search-logo {
 	float:left;
 	height: 50px;
 }
-.search-logo-google {
-	height: 40px;
-	margin: 15px 10px;
-}
-.search-logo-bing {
-	height: 50px;
-	margin: 10px;
-}
-.search-logo-baidu {
-	height: 70px;
-	margin-top: -10px;
-}
-.search-logo-sogou {
-	height: 50px;
-	margin: 10px;
-}
-.search-logo-360 {
-	height: 40px;
-	padding: 15px 10px;
-}
-.search-logo-yahoo {
-	height: 35px;
-	padding: 18px 10px;
-}
-.search-logo-yandex {
-	height: 40px;
-	padding: 15px 10px;
-}
-.search-logo-duckduckgo {
-	height: 45px;
-	padding: 10px;
-}
-.search-input {
+#search-input {
 	background-color: rgba(255,255,255,0.7);
 	float:left;
 	margin: 10px;
@@ -62,7 +30,7 @@ body {
 	padding: 10px;
 	outline: none;
 }
-.search-input:focus {
+#search-input:focus {
 	background-color: rgba(255,255,255,0.9);
 }
 
@@ -87,16 +55,18 @@ body {
 #functions-child a{
 	color: white;
 	text-decoration: none;
+	padding: 0 5px;
+	border-radius: 5px;
+	display: inline-block;
 }
 
 #functions-child a:hover{
-	color: white;
-	text-decoration: none;
+	background-color: rgba(0, 0, 0, 0.8);
 }
 
 #functions-div:hover #functions-child {
 	display: block;
-	background: rgba(0, 0, 0, 0.3);
+	background: rgba(0, 0, 0, 0.5);
 	border-radius: 5px;
 	padding: 5px 10px;
 }
@@ -104,6 +74,10 @@ body {
 #functions-child li{
 	list-style: none;
 	margin: 5px 0;
+}
+
+#functions-child .bottom-links {
+	cursor: pointer;
 }
 
 #functions-child .bottom-links svg, #functions-child .bottom-links span{
@@ -150,7 +124,7 @@ body {
 }
 
 #footer-op:hover {
-	background: rgba(0, 0, 0, 0.3);
+	background: rgba(0, 0, 0, 0.5);
 }
 
 #footer-op:hover #change-wallpaper{

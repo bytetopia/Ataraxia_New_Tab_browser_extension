@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- NOTE: external links are for testing only -->
+    <link href="./vendor/mui/mui.min.css" rel="stylesheet"/>
+    <title>Ataraxia Settings</title>
+    <style>
+      body {
+        width: 100%;
+        padding: 20px 40px;
+      }
+      .mui-tabs__pane {
+        padding: 20px;
+      }
+      #settings-title {
+        color: gray;
+        padding: 5px;
+      }
+      textarea {
+        font-family: Consolas, Monaco, Menlo;
+        font-size: 12px;
+        border-radius: 5px;
+        padding: 10px;
+        min-width: 600px;
+        min-height: 300px;
+      }
+      #version-code-span {
+        color: #009eee;
+      }
+    </style>
+  </head>
+  <body>
+
+
+    <h2 id="settings-title">
+      <svg t="1576665395057" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2296" width="25" height="25"><path d="M829.013333 553.6c1.706667-13.653333 2.986667-27.52 2.986667-41.6s-1.28-27.946667-2.986667-41.6l90.24-70.613333c8.106667-6.4 10.453333-17.92 5.12-27.306667l-85.333333-147.84c-5.333333-9.173333-16.426667-13.013333-26.026667-9.173333l-106.24 42.88c-21.973333-16.853333-46.08-31.146667-72.106666-42.026667L618.666667 103.253333c-1.92-10.026667-10.666667-17.92-21.333334-17.92h-170.666666c-10.666667 0-19.413333 7.893333-21.12 17.92l-16 113.066667a315.733333 315.733333 0 0 0-72.106667 42.026667L211.2 215.466667a21.333333 21.333333 0 0 0-26.026667 9.173333l-85.333333 147.84c-5.333333 9.173333-2.986667 20.693333 5.12 27.306667l90.026667 70.613333C193.28 484.053333 192 497.92 192 512s1.28 27.946667 2.986667 41.6l-90.026667 70.613333c-8.106667 6.4-10.453333 17.92-5.12 27.306667l85.333333 147.84c5.333333 9.173333 16.426667 13.013333 26.026667 9.173333l106.24-42.88c21.973333 16.853333 46.08 31.146667 72.106667 42.026667l16 113.066667c1.706667 10.026667 10.453333 17.92 21.12 17.92h170.666666c10.666667 0 19.413333-7.893333 21.12-17.92l16-113.066667a315.733333 315.733333 0 0 0 72.106667-42.026667l106.24 42.88a21.333333 21.333333 0 0 0 26.026667-9.173333l85.333333-147.84c5.333333-9.173333 2.986667-20.693333-5.12-27.306667l-90.026667-70.613333zM512 661.333333c-82.56 0-149.333333-66.773333-149.333333-149.333333s66.773333-149.333333 149.333333-149.333333 149.333333 66.773333 149.333333 149.333333-66.773333 149.333333-149.333333 149.333333z" p-id="2297" fill="#8a8a8a"></path></svg>
+      <span id="display-title">Ataraxia Settings</span>
+    </h2>
+     <ul class="mui-tabs__bar">
+      <li class="mui--is-active"><a data-mui-toggle="tab" data-mui-controls="pane-default-1" id="nav-search-engine">Search Engine</a></li>
+      <li><a data-mui-toggle="tab" data-mui-controls="pane-default-2" id="nav-quick-links">Quick Links</a></li>
+      <li><a data-mui-toggle="tab" data-mui-controls="pane-default-3" id="nav-about">About</a></li>
+    </ul>
+
+    <!-- TAB search engine -->
+    <div class="mui-tabs__pane mui--is-active" id="pane-default-1">
+      <p id="search-prompt">Edit JSON config to adjust search engines. You can change the order / delete or add search engines.</p>
+      <textarea id="search-engine-textarea"></textarea>
+      <br/>
+      <button id="save-search-engine-conf" class="mui-btn mui-btn--primary op-btn-save-this">Save and apply</button>
+      <button id="recover-search-engine-conf" class="mui-btn mui-btn--flat mui-btn--primary op-btn-reset-default">Reset to default</button>
+    </div>
+    <!-- END TAB search engine -->
+
+    <!-- TAB Links -->
+    <div class="mui-tabs__pane" id="pane-default-2">
+      <p id="quick-link-prompt">Customize the Quick Links to be displayed in the upper right.</p>
+      <hr/>
+      <p id="top-sites-prompt">Show frequently visited sites:</p>
+      <button id="close-top-sites-btn" class="mui-btn mui-btn--primary">Open. Click to close.</button>
+      <button id="open-top-sites-btn" class="mui-btn mui-btn--accent">Closed. Click to open.</button>
+      <hr/>
+      <p id="custom-bkmk-prompt">Edit JSON to add links you want to display:</p>
+      <textarea id="custom-bkmk-textarea"></textarea>
+      <br/>
+      <button id="save-custom-bkmk-conf" class="mui-btn mui-btn--primary op-btn-save-this">Save and apply</button>
+      <button id="recover-custom-bkmk-conf" class="mui-btn mui-btn--flat mui-btn--primary op-btn-reset-default">Reset to default</button>
+    </div>
+    <!-- END TAB links -->
+
+    <!-- TAB More -->
+    <div class="mui-tabs__pane" id="pane-default-3">
+      <p id="about-prompt">Ataraxia - Refreshing and surprising new tab experience.</p><br/>
+      <b><span id="about-current-ver">Current Version: </span><span id="version-code-span"></span></b><br/><br/>
+      <a id="check-update-btn" class="mui-btn mui-btn--primary" target="_blank" href="#">Check for updates</a>
+      <a id="send-feedback-btn" class="mui-btn mui-btn--primary" href="mailto:hello@codingcat.cn">Send feedback</a>
+    </div>
+    <!-- END TAB More -->
+
+    <script src="./vendor/mui/mui.min.js"></script>
+    <script src="./scripts/base.js"></script>
+    <script src="./scripts/option_page/main.js"></script>
+    <script src="./scripts/option_page/i18n.js"></script>
+
+  </body>
+</html>

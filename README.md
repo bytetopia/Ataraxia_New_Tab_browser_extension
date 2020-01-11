@@ -73,7 +73,9 @@ Modify `blank.html` to add new search engines.
 
 ---
 
+
 # Update Log
+- 1.0 (2020-01-11) 修复bug；支持壁纸下载
 - 0.9 (2019-12-22) 支持自定义搜索引擎/快捷链接/常用站点！做了中英文i18n
 - 0.8 (2019-12-02) 支持手动检查更新；支持切换至前7天的壁纸
 - 0.7 (2019-11-28) 支持快捷链接经常访问的站点；优化UI布局适配不同尺寸窗口；优化：切换搜索引擎时不丢失query；
@@ -83,4 +85,9 @@ Modify `blank.html` to add new search engines.
 - 0.3 (2019-10-18) 增加URL缓存，避免每次打开新标签时的重复在线请求
 - 0.2（2019-10-13） 修复get提交表单时中文乱码
 - 0。1（2019-10-12）初始版本发布～
+
+# note
+
+download crx from https://crxextractor.com/
+
 

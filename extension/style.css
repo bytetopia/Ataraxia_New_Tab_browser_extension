@@ -118,6 +118,11 @@ body {
 	display: none;
 }
 
+#wallpaper-download-link {
+	padding-right: 5px;
+	display: none;
+}
+
 #footer-op svg, #footer-op span {
 	display: inline-block;
 	vertical-align: middle;
@@ -128,6 +133,10 @@ body {
 }
 
 #footer-op:hover #change-wallpaper{
+	display: inline-block;
+}
+
+#footer-op:hover #wallpaper-download-link{
 	display: inline-block;
 }
 

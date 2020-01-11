@@ -25,6 +25,11 @@ function i18n_btr_change_wallpaper_btn() {
 	x.title = i18n('btr_change_wallpaper_btn');
 }
 
+// bottom-right download wallpaper btn 
+function i18n_btr_download_wallpaper_btn() {
+	var x = document.getElementById('wallpaper-download-link');
+	x.title = i18n('btr_download_wallpaper_btn');
+}
 
 
 function exec_i18n() {
@@ -33,6 +38,7 @@ function exec_i18n() {
 	i18n_btr_change_wallpaper_btn();
 	i18n_tpr_check_update_btn();
 	i18n_tpr_settings_btn();
+	i18n_btr_download_wallpaper_btn();
 }
 
 exec_i18n();

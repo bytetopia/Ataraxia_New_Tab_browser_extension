@@ -4,6 +4,8 @@ function showDefaultWallpaper() {
 	// set wallpaper
 	var body = document.getElementById('main-body');
 	body.style.backgroundImage = "url('./images/john-reign-abarintos-369080-unsplash.jpg')";
+	// set download link
+	setDownloadLink();
 }
 
 // set footer text
@@ -46,6 +48,8 @@ function loadAndChangeOnlineWallpaper(url, text) {
 		writeConf("wallpaper_date", getDateString());
 		writeConf("wallpaper_url", url);
 		writeConf("wallpaper_text", text);
+		// set download link
+		setDownloadLink();
 	};
 }
 
@@ -104,6 +108,13 @@ function switchOldWallpaper(){
 	writeConf("offset_idx", cache_idx.toString());
 	// reload wallpaper
 	updateWallpaper(cache_idx);
+}
+
+// set wallpaper download link
+function setDownloadLink() {
+	var downloadLink = document.getElementById('wallpaper-download-link');
+	downloadLink.href = document.getElementById('main-body').style.backgroundImage.replace('url("', '').replace('")','');
+	downloadLink.download = 'bing-wallpaper-' + getDateString();
 }
 
 

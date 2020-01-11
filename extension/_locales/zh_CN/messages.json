@@ -5,7 +5,7 @@
     },
 
     "update_content": {
-        "message": "支持自定义搜索引擎，展示最常访问的站点，自定义快捷链接"
+        "message": "右下角按钮支持保存壁纸到本地"
     },
 
     // main page
@@ -40,6 +40,10 @@
 
     "btr_change_wallpaper_btn": {
         "message": "换一张背景图"
+    },
+
+    "btr_download_wallpaper_btn": {
+        "message": "下载来自Bing.com的壁纸"
     },
 
     // option page

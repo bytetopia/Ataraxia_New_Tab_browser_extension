@@ -6,7 +6,7 @@
     },
 
     "update_content": {
-        "message": "You can customize search engines, view most visited sites and customize quick links now."
+        "message": "You can download wallpaper with the bottom-right button."
     },
 
     // main page
@@ -41,6 +41,10 @@
 
     "btr_change_wallpaper_btn": {
         "message": "change another wallpaper"
+    },
+
+    "btr_download_wallpaper_btn": {
+        "message": "download wallpaper from Bing.com"
     },
 
     // option page

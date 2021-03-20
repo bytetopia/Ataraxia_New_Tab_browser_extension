@@ -6,19 +6,19 @@
   "author": "Anthony",
   "homepage_url"    : "https://codingcat.cn/ataraxia/",
   "description": "__MSG_extension_desc__",
-  "version": "1.0",
+  "version": "1.1",
   "incognito": "split",
   "chrome_url_overrides": {
     "newtab": "blank.html"
   },
   "icons": {
-    "16": "./icon.png",
-    "32": "./icon.png",
-    "48": "./icon.png",
-    "128": "./icon.png"
+    "16": "./ata_16.png",
+    "32": "./ata_32.png",
+    "48": "./ata_48.png",
+    "128": "./ata_128.png"
   },
   "permissions": [
-  	"*://*.bing.com/*",
+  	"https://www.bing.com/",
     "storage"
   ],
   "optional_permissions": [

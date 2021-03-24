@@ -40,6 +40,13 @@ function initTopSites() {
 // load custom bookmarks
 function initCustomBookmarks() {
 	var bookmarks = readConf('custom_bkmk_list');
+
+	// if no bookmark settings (first install), write default conf.
+	if (bookmarks == null) {
+		bookmarks = defaultCustomBookmarks;
+		writeConf('custom_bkmk_list', bookmarks);
+	}
+
 	if (bookmarks != null && bookmarks.length > 0) {
 		var popupDiv = document.getElementById('top-sites-div');	
 		var ul = popupDiv.appendChild(document.createElement('ul'));	

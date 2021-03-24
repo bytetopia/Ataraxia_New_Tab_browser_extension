@@ -6,7 +6,7 @@
   "author": "Anthony",
   "homepage_url"    : "https://codingcat.cn/ataraxia/",
   "description": "__MSG_extension_desc__",
-  "version": "1.1",
+  "version": "1.2",
   "incognito": "split",
   "chrome_url_overrides": {
     "newtab": "blank.html"

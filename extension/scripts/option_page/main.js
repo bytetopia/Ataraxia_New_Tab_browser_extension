@@ -5,10 +5,27 @@
 // search engine settings
 
 function initSearchEngineConf() {
+	// show search box
+	if(readConf('display_search_box') == 'no') {
+		document.getElementById('show-search-engine-checkbox').checked = false;
+	}
+	else {
+		document.getElementById('show-search-engine-checkbox').checked = true;
+	}
+	// search engine list
 	document.getElementById('search-engine-textarea').value = JSON.stringify(readConf('search_engine_list'), null, 4);
 }
 
 function changeSearchEngineConf() {
+	// update search box conf
+	if (document.getElementById('show-search-engine-checkbox').checked == true) {
+		writeConf('display_search_box', 'yes');
+	}
+	else {
+		writeConf('display_search_box', 'no');
+	}
+
+	// update engine list conf
 	var newConf = document.getElementById('search-engine-textarea').value;
 	// check validaty 
 	var obj = null;
@@ -25,6 +42,10 @@ function changeSearchEngineConf() {
 function recoverDefaultSearchEngineConf() {
 	var cfm = confirm(i18n('op_reset_default_confirm_alert'));
 	if (cfm == true) {
+		// default show search box conf
+		writeConf('display_search_box', 'yes');
+		document.getElementById('show-search-engine-checkbox').checked = true;
+		// default search engine list conf
 		writeConf('search_engine_list', defaultSearchEngines);
 		document.getElementById('search-engine-textarea').value = JSON.stringify(defaultSearchEngines, null, 4);
 		alert(i18n('op_reset_default_done_alert'));
@@ -122,17 +143,6 @@ function closeTopSites() {
 }
 
 // custom bookmarks 
-
-var defaultCustomBookmarks = [
-	{
-		name: "Ataraxia Settings",
-		url: "./options.html"
-	},
-	{
-		name: "Ataraxia Website",
-		url: "https://codingcat.cn/ataraxia/"
-	}
-]
 
 function initCustomBookmarks() {
 	var conf = readConf('custom_bkmk_list');

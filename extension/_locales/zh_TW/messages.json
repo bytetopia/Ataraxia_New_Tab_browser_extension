@@ -1,5 +1,5 @@
 {
-    // new version info
+
     "you_have_updated_to_the_latest_version": {
         "message": "新升級！"
     },
@@ -7,8 +7,6 @@
     "update_content": {
         "message": "新logo，以及安全与稳定性改进。"
     },
-
-    // main page
 
     "new_tab_title": {
         "message": "新標籤頁"
@@ -47,7 +45,6 @@
     },
 
 
-    // option page
     "op_title": {
         "message": "Ataraxia 設置項"
     },
@@ -74,6 +71,10 @@
 
     "op_search_prompt": {
         "message": "修改 JSON 配置，您可以調整搜索引擎順序，刪除某些搜索引擎，或添加更多搜索引擎。"
+    },
+
+    "op_show_search_checkbox_prompt": {
+        "message": "显示搜索框"
     },
 
     "op_quick_link_prompt": {
@@ -136,8 +137,6 @@
         "message": "授權失敗，功能無法開啟。請您重試，並允許授予權限。"
     },
 
-    // placeholder
-    
     "placeholder": {
         "message": "placeholder"
     }

@@ -1,6 +1,5 @@
 {
 
-    // new version info
     "you_have_updated_to_the_latest_version": {
         "message": "Ataraxia has been updated !"
     },
@@ -9,7 +8,6 @@
         "message": "Less permissions, more privacy. And Ataraxia has a new icon now."
     },
 
-    // main page
 
     "new_tab_title": {
         "message": "New Tab"
@@ -47,7 +45,6 @@
         "message": "download wallpaper from Bing.com"
     },
 
-    // option page
 
     "op_title": {
         "message": "Ataraxia Settings"
@@ -75,6 +72,10 @@
 
     "op_search_prompt": {
         "message": "Edit JSON config to adjust search engines. You can change the order / delete or add search engines."
+    },
+
+    "op_show_search_checkbox_prompt": {
+        "message": "Show search input box"
     },
 
     "op_quick_link_prompt": {
@@ -137,8 +138,7 @@
         "message": "Authorization failed, feature cannot be turned on. Please try again and grant the permission."
     },
 
-    // placeholder
-    
+
     "placeholder": {
         "message": "placeholder"
     }

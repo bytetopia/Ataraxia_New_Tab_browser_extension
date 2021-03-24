@@ -33,6 +33,8 @@ function i18n_op_common_btns() {
 // search engine tab
 function i18n_search_engine_tab() {
 	document.getElementById("search-prompt").innerHTML = i18n('op_search_prompt');
+	document.getElementById("show-search-engine-checkbox-text").innerHTML = i18n('op_show_search_checkbox_prompt');
+	
 }
 
 // quick link tab

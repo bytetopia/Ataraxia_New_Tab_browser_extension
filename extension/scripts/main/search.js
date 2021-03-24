@@ -74,7 +74,20 @@ function focusOnSearchInput() {
 	document.getElementById('search-input').focus();
 }
 
+// read conf and decide show/hide search box
+function initSearchBoxDisplay() {
+	var is_show = readConf('display_search_box');
+	if (is_show == 'no') {
+		document.getElementById('search-box-whole-block').style.display = 'none';
+	} else {
+		document.getElementById('search-box-whole-block').style.display = 'block';
+	}
+}
+
 // --------------------------------------------------
+
+// show/hide search box
+initSearchBoxDisplay();
 
 // bind switch logo function to logo
 document.getElementById('search-logo').onclick = switchEngine;
@@ -84,5 +97,6 @@ initEngine();
 
 // bind body click focus event
 document.getElementById('main-body').onclick = focusOnSearchInput;
+
 
 

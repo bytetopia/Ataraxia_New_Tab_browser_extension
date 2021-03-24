@@ -1,5 +1,5 @@
 {
-    // new version info
+
     "you_have_updated_to_the_latest_version": {
         "message": "新升级！"
     },
@@ -8,7 +8,6 @@
         "message": "新logo，以及安全与稳定性改进。"
     },
 
-    // main page
 
     "new_tab_title": {
         "message": "新标签页"
@@ -46,7 +45,6 @@
         "message": "下载来自Bing.com的壁纸"
     },
 
-    // option page
     "op_title": {
         "message": "Ataraxia 设置项"
     },
@@ -73,6 +71,10 @@
 
     "op_search_prompt": {
         "message": "修改 JSON 配置，您可以调整搜索引擎顺序，删除某些搜索引擎，或添加更多搜索引擎。"
+    },
+
+    "op_show_search_checkbox_prompt": {
+        "message": "显示搜索框"
     },
 
     "op_quick_link_prompt": {
@@ -134,8 +136,6 @@
     "op_top_site_perm_fail": {
         "message": "授权失败，功能无法开启。请您重试，并允许授予权限。"
     },
-
-    // placeholder
     
     "placeholder": {
         "message": "placeholder"

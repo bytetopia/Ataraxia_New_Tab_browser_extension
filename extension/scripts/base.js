@@ -61,6 +61,7 @@ function i18n(key) {
  // search
  - search_engine_list: list of available search engines
  - current_search_engine: name of current search engine
+ - display_search_box: yes no string, show search box
 
  // topSites
  - show_top_sites: yes no string
@@ -160,5 +161,12 @@ var defaultSearchEngines = [
     }
 ]
 
+
+var defaultCustomBookmarks = [
+    {
+		name: "Ataraxia User Guide",
+		url: "https://codingcat.cn/ataraxia/install.html"
+	}
+]
 
 

@@ -1,11 +1,14 @@
 /* main */
 body {
 	background-repeat: no-repeat;
-	background-size: 100% 100%;
+	background-size:cover;
+	background-position:center center;
 }
+
 .block {
 	padding: 10%;
 }
+
 .bottom {
 	position: absolute;
 	bottom: 30px;
@@ -18,6 +21,7 @@ body {
 	float:left;
 	height: 50px;
 }
+
 #search-input {
 	background-color: rgba(255,255,255,0.7);
 	float:left;
@@ -30,6 +34,7 @@ body {
 	padding: 10px;
 	outline: none;
 }
+
 #search-input:focus {
 	background-color: rgba(255,255,255,0.9);
 }

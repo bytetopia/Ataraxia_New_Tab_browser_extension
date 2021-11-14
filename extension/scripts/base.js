@@ -2,7 +2,7 @@
 var manifestData = chrome.runtime.getManifest();
 let CURRENT_VERSION = manifestData.version;
 let CURRENT_LOCALE = chrome.i18n.getMessage('@@ui_locale');
-let CURRENT_BROWSER = "chrome";
+let CURRENT_BROWSER = "edge";
 
 // ---- helper funcs ----
 

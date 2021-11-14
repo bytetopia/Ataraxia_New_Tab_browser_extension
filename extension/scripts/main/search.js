@@ -1,11 +1,6 @@
 
 // get search engine conf
 var searchEngines = readConf('search_engine_list');
-if (searchEngines == null) {
-	searchEngines = defaultSearchEngines;
-	writeConf('search_engine_list', defaultSearchEngines);
-}
-
 
 // get current search engine
 function getCurrentEngineName() {

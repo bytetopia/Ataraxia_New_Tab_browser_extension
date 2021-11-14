@@ -5,7 +5,7 @@
     },
 
     "update_content": {
-        "message": "Fix the background image stretching problem and other bugs. Enjoy the new version."
+        "message": "Support UHD wallpaper now! Go to Settings to enable it :)"
     },
 
 
@@ -45,6 +45,9 @@
         "message": "download wallpaper from Bing.com"
     },
 
+    "btr_download_wallpaper_uhd_badge": {
+        "message": "UHD Photo"
+    },
 
     "op_title": {
         "message": "Ataraxia Settings"
@@ -60,6 +63,10 @@
 
     "op_nav_about": {
         "message": "About"
+    },
+
+    "op_nav_wallpaper": {
+        "message": "Wallpaper"
     },
 
     "op_btn_save_this": {
@@ -96,6 +103,18 @@
 
     "op_custom_bkmk_prompt": {
         "message": "Edit JSON to add links you want to display:"
+    },
+
+    "op_wallpaper_uhd_hint1": {
+        "message": "By default Ataraxia load wallpapers with 1920x1080 resolution. UHD wallpapers are much clearer, but also take longer time to be loaded for the first time."
+    },
+
+    "op_wallpaper_uhd_hint2": {
+        "message": "If you find it takes too much time or fails to load the wallpaper, please do not open UHD option."
+    },
+
+    "op_wallpaper_uhd_checkbox": {
+        "message": "Load UHD wallpapers"
     },
 
     "op_about_prompt": {
@@ -137,7 +156,6 @@
     "op_top_site_perm_fail": {
         "message": "Authorization failed, feature cannot be turned on. Please try again and grant the permission."
     },
-
 
     "placeholder": {
         "message": "placeholder"

@@ -12,6 +12,14 @@ function showDefaultWallpaper() {
 function setFooterText(text) {
 	var footer_text = document.getElementById('footer-text');
 	footer_text.innerHTML = text;
+	// display / hide the uhd badge
+	var uhd_badge = document.getElementById('uhd-badge');
+	if (readConf('enable_uhd_wallpaper') == 'yes') {
+		uhd_badge.innerHTML = i18n('btr_download_wallpaper_uhd_badge');
+	}
+	else {
+		uhd_badge.innerHTML = '';
+	}
 }
 
 // display loading animation
@@ -61,6 +69,10 @@ function updateWallpaper(idx){
 		if(xhr.readyState==4){
 			var obj = JSON.parse(xhr.responseText);
 			var url = 'https://bing.com' + obj.images[0].url;
+			// if UHD enabled
+			if (readConf('enable_uhd_wallpaper') == 'yes') {
+				url = url.replaceAll('1920x1080', 'UHD');
+			}
 			loadAndChangeOnlineWallpaper(url, obj.images[0].copyright);
 		}
 		else{

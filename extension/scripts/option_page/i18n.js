@@ -13,6 +13,7 @@ function i18n_display_title(){
 function i18n_nav() {
 	document.getElementById("nav-search-engine").innerHTML = i18n('op_nav_search_engine');
 	document.getElementById("nav-quick-links").innerHTML = i18n('op_nav_quick_links');
+	document.getElementById("nav-wallpaper").innerHTML = i18n('op_nav_wallpaper');
 	document.getElementById("nav-about").innerHTML = i18n('op_nav_about');
 }
 
@@ -46,6 +47,12 @@ function i18n_quick_link_tab() {
 	document.getElementById("open-top-sites-btn").innerHTML = i18n('op_open_top_sites_btn');
 }
 
+function i18n_wallpaper_tab() {
+	document.getElementById("uhd-wallpaper-prompt1").innerHTML = i18n('op_wallpaper_uhd_hint1');
+	document.getElementById("uhd-wallpaper-prompt2").innerHTML = i18n('op_wallpaper_uhd_hint2');
+	document.getElementById("use-uhd-wallpaper-checkbox-text").innerHTML = i18n('op_wallpaper_uhd_checkbox');
+}
+
 // about tab
 function i18n_about_tab() {
 	document.getElementById("about-prompt").innerHTML = i18n('op_about_prompt');
@@ -63,6 +70,7 @@ function exec_i18n() {
 	i18n_op_common_btns();
 	i18n_search_engine_tab();
 	i18n_quick_link_tab();
+	i18n_wallpaper_tab();
 	i18n_about_tab();
 }
 

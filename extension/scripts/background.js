@@ -1,11 +1,18 @@
+// functions executed onInstall and onUninstall
 
+// on install
 chrome.runtime.onInstalled.addListener(function (object) {
 	// open manual link
 	if (chrome.runtime.OnInstalledReason.INSTALL === object.reason ) {
-		chrome.tabs.create({url: "https://codingcat.cn/ataraxia/install.html?utm_medium=store&utm_source=" + chrome.i18n.getMessage("@@ui_locale")}, function (tab) {
-	        console.log("New tab launched with https://codingcat.cn/ataraxia/install.html");
-	    });
+		// open Welcome page
+		chrome.tabs.create({url: "https://ataraxia.dongxing.xin/install.html?utm_medium=chrome&utm_source=" + navigator.language}, function (tab) {
+	        console.log("New tab launched with https://ataraxia.dongxing.xin/install.html");
+		});
+
+		// write sync conf
+		chrome.storage.sync.set({"source": "chrome"}, function(){});
 	}
 });
 
-chrome.runtime.setUninstallURL("https://codingcat.cn/ataraxia/uninstall.html");
+// on uninstall
+chrome.runtime.setUninstallURL("https://ataraxia.dongxing.xin/uninstall.html?utm_medium=chrome&utm_source=" + navigator.language);

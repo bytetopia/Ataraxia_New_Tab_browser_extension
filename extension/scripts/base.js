@@ -1,8 +1,10 @@
 
 var manifestData = chrome.runtime.getManifest();
-var CURRENT_VERSION = manifestData.version;
-var CURRENT_LOCALE = chrome.i18n.getMessage('@@ui_locale');
+let CURRENT_VERSION = manifestData.version;
+let CURRENT_LOCALE = chrome.i18n.getMessage('@@ui_locale');
+let CURRENT_BROWSER = "chrome";
 
+// ---- helper funcs ----
 
 // append onload event
 function appendOnLoadEvent(func) {
@@ -17,32 +19,6 @@ function appendOnLoadEvent(func) {
     }
 }
 
-// set cookie: cname = cvalue
-function setCookie(cname, cvalue) {
-	var exp_days = 365
-    var d = new Date();
-    d.setTime(d.getTime() + (exp_days*24*60*60*1000));
-    var expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-} 
-
-// get cookie string by name
-function getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-         }
-         if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-         }
-     }
-    return "";
-} 
-
 // get current date string 
 function getDateString() {
 	var date = new Date();
@@ -55,24 +31,6 @@ function i18n(key) {
     return chrome.i18n.getMessage(key);
 }
 
-/*
- NOTE: conf keys
-
- // search
- - search_engine_list: list of available search engines
- - current_search_engine: name of current search engine
- - display_search_box: yes no string, show search box
-
- // topSites
- - show_top_sites: yes no string
-
- // custom bookmarks
- - custom_bkmk_list: list of user defined bookmarks
-
- // mark if this is the first open of a new version
- - last_open_version: string of version code of last open
-
-*/
 
 // write chrome storage
 function writeConf(key, value) {
@@ -87,8 +45,8 @@ function writeConf(key, value) {
 // read chrome storage
 function readConf(key) {
     var val = localStorage[key];
-    if (val == null) {
-        return null;
+    if (val == undefined) {
+        return undefined;
     }
     else {
         return JSON.parse(val);
@@ -101,72 +59,132 @@ function readConf(key) {
     });
     */
 }
+
+// ---- conf initializer ---- 
+
+/* 
+    Conf items: 
+        // search
+            - search_engine_list: Json list, available search engines
+            - current_search_engine: String, name of current search engine
+            - display_search_box: String(yes no), show search box or not
+        // topSites
+            - show_top_sites: String(yes no)
+        // custom bookmarks
+            - custom_bkmk_list: Json list, user defined bookmarks
+        // wallpaper
+            - enable_uhd_wallpaper: String(yes no)
+            - wallpaper_date: String
+            - wallpaper_url: String
+            - wallpaper_text: String
+            - offset_idx: String, can be parsed to int
+        // version flag
+            - last_open_version: String
+    */
         
-var defaultSearchEngines = [
-    {
-        name: "Google", 
-        icon: "icons/google.png",
-        action: "https://google.com/search",
-        param_name: "q",
-        css_style: "height: 40px; margin: 15px 10px;"
-    },
-    {
-        name: "Bing", 
-        icon: "icons/bing.png",
-        action: "https://bing.com/search",
-        param_name: "q",
-        css_style: "height: 50px;  margin: 10px;"
-    },
-    {
-        name: "Baidu", 
-        icon: "icons/baidu.png",
-        action: "https://www.baidu.com/s",
-        param_name: "wd",
-        css_style: "height: 70px; margin-top: -10px;"
-    },
-    {
-        name: "Sogou", 
-        icon: "icons/sogou.png",
-        action: "https://www.sogou.com/web",
-        param_name: "query",
-        css_style: "height: 50px; margin: 10px;"
-    },
-    {
-        name: "Yahoo", 
-        icon: "icons/yahoo.png",
-        action: "https://search.yahoo.com/search",
-        param_name: "p",
-        css_style: "height: 35px; padding: 18px 10px;"
-    },
-    {
-        name: "Yandex", 
-        icon: "icons/yandex.png",
-        action: "https://yandex.com/search",
-        param_name: "text",
-        css_style: "height: 40px; padding: 15px 10px;"
-    },
-    {
-        name: "DuckDuckGo", 
-        icon: "icons/duckduckgo.png",
-        action: "https://duckduckgo.com/",
-        param_name: "q",
-        css_style: "height: 45px; padding: 10px;"
-    },
-    {
-        name: "360", 
-        icon: "icons/360.png",
-        action: "https://www.so.com/s",
-        param_name: "q",
-        css_style: "height: 40px; padding: 15px 10px;"
+// initialize conf storage
+function initializeConf() {
+    console.log("initialize conf ...");
+
+    // define default settings  
+    var defaultSettings = {
+        search_engine_list: [
+            {
+                name: "Google", 
+                icon: "icons/google.png",
+                action: "https://google.com/search",
+                param_name: "q",
+                css_style: "height: 40px; margin: 15px 10px;"
+            },
+            {
+                name: "Bing", 
+                icon: "icons/bing.png",
+                action: "https://bing.com/search",
+                param_name: "q",
+                css_style: "height: 50px;  margin: 10px;"
+            },
+            {
+                name: "Baidu", 
+                icon: "icons/baidu.png",
+                action: "https://www.baidu.com/s",
+                param_name: "wd",
+                css_style: "height: 70px; margin-top: -10px;"
+            },
+            {
+                name: "Sogou", 
+                icon: "icons/sogou.png",
+                action: "https://www.sogou.com/web",
+                param_name: "query",
+                css_style: "height: 50px; margin: 10px;"
+            },
+            {
+                name: "Yahoo", 
+                icon: "icons/yahoo.png",
+                action: "https://search.yahoo.com/search",
+                param_name: "p",
+                css_style: "height: 35px; padding: 18px 10px;"
+            },
+            {
+                name: "Yandex", 
+                icon: "icons/yandex.png",
+                action: "https://yandex.com/search",
+                param_name: "text",
+                css_style: "height: 40px; padding: 15px 10px;"
+            },
+            {
+                name: "DuckDuckGo", 
+                icon: "icons/duckduckgo.png",
+                action: "https://duckduckgo.com/",
+                param_name: "q",
+                css_style: "height: 45px; padding: 10px;"
+            },
+            {
+                name: "360", 
+                icon: "icons/360.png",
+                action: "https://www.so.com/s",
+                param_name: "q",
+                css_style: "height: 40px; padding: 15px 10px;"
+            }
+        ],
+        current_search_engine: "Google",
+        display_search_box: "yes",
+        show_top_sites: "no",
+        custom_bkmk_list: [
+            {
+                name: "Ataraxia User Guide",
+                url: "https://ataraxia.dongxing.xin/install.html"
+            }
+        ],
+        enable_uhd_wallpaper: "no",
+        wallpaper_date: "2000-01-01",
+        wallpaper_url: "./images/john-reign-abarintos-369080-unsplash.jpg",
+        wallpaper_text: "Welcome to Ataraxia.",
+        offset_idx: "0",
+        last_open_version: "0"
     }
-]
+
+    for (k in defaultSettings) {
+        if (readConf(k) == undefined) {
+            writeConf(k, defaultSettings[k]);
+            console.log(" set default conf: ", k, " = ", defaultSettings[k]);
+        }
+    }
+
+    console.log("done. conf updated with default value.");
+}
 
 
-var defaultCustomBookmarks = [
-    {
-		name: "Ataraxia User Guide",
-		url: "https://codingcat.cn/ataraxia/install.html"
-	}
-]
+// check if last_open_version is undefined(first install) or less than current version(updated), update the conf items with default value.
+var last_open_version = readConf('last_open_version');
 
+if (last_open_version == undefined || parseFloat(last_open_version) < parseFloat(CURRENT_VERSION)) {
+    console.log("update from ", last_open_version, " to ", CURRENT_VERSION);
+    // init conf
+    initializeConf();
+
+    // pop up update prompt
+    spop('<h4 class="spop-title">' + i18n('you_have_updated_to_the_latest_version') + '</h4>' + i18n('update_content'), 'success');
+
+    writeConf('last_open_version', CURRENT_VERSION);
+}
 

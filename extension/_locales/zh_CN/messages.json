@@ -5,7 +5,7 @@
     },
 
     "update_content": {
-        "message": "壁纸拉伸变形修复; 壁纸说明本地化修复."
+        "message": "支持超清分辨率(4K+)壁纸，请在设置中启用 :)"
     },
 
 
@@ -45,6 +45,10 @@
         "message": "下载来自Bing.com的壁纸"
     },
 
+    "btr_download_wallpaper_uhd_badge": {
+        "message": "超清"
+    },
+
     "op_title": {
         "message": "Ataraxia 设置项"
     },
@@ -59,6 +63,10 @@
 
     "op_nav_about": {
         "message": "关于Ataraxia"
+    },
+
+    "op_nav_wallpaper": {
+        "message": "壁纸设置"
     },
 
     "op_btn_save_this": {
@@ -95,6 +103,18 @@
 
     "op_custom_bkmk_prompt": {
         "message": "自定义要显示的链接："
+    },
+
+    "op_wallpaper_uhd_hint1": {
+        "message": "默认加载分辨率为 1920x1080 的壁纸图片。超清壁纸极大提升了图片清晰度，但也需要更长时间来完成初次加载。"
+    },
+
+    "op_wallpaper_uhd_hint2": {
+        "message": "如果发现壁纸加载耗时过长或无法成功加载，建议关闭此项，避免加载 UHD 壁纸。"
+    },
+
+    "op_wallpaper_uhd_checkbox": {
+        "message": "加载超清壁纸图片"
     },
 
     "op_about_prompt": {

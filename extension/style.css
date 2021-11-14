@@ -124,7 +124,13 @@ body {
 }
 
 #wallpaper-download-link {
-	padding-right: 5px;
+	padding-left: 8px;
+	display: none;
+	text-decoration: none;
+	color: white;
+}
+
+#uhd-badge {
 	display: none;
 }
 
@@ -145,6 +151,9 @@ body {
 	display: inline-block;
 }
 
+#footer-op:hover #uhd-badge{
+	display: inline-block;
+}
 
 
 

@@ -41,7 +41,8 @@
      <ul class="mui-tabs__bar">
       <li class="mui--is-active"><a data-mui-toggle="tab" data-mui-controls="pane-default-1" id="nav-search-engine">Search Engine</a></li>
       <li><a data-mui-toggle="tab" data-mui-controls="pane-default-2" id="nav-quick-links">Quick Links</a></li>
-      <li><a data-mui-toggle="tab" data-mui-controls="pane-default-3" id="nav-about">About</a></li>
+      <li><a data-mui-toggle="tab" data-mui-controls="pane-default-3" id="nav-wallpaper">Wallpaper</a></li>
+      <li><a data-mui-toggle="tab" data-mui-controls="pane-default-4" id="nav-about">About</a></li>
     </ul>
 
     <!-- TAB search engine -->
@@ -77,8 +78,24 @@
     </div>
     <!-- END TAB links -->
 
-    <!-- TAB More -->
+    <!-- TAB wallpapers -->
     <div class="mui-tabs__pane" id="pane-default-3">
+      <p id="uhd-wallpaper-prompt1">By default Ataraxia load wallpapers with 1920x1080 resolution. UHD wallpapers are much clearer, but also take longer time to be loaded for the first time. </p>
+      <p id="uhd-wallpaper-prompt2">If you find it takes too much time or fails to load the wallpaper, please do not open UHD option.</p>
+      <hr/>
+      <div class="mui-checkbox">
+        <label >
+          <input id="use-uhd-wallpaper-checkbox" type="checkbox" value="">
+          <span id="use-uhd-wallpaper-checkbox-text">Load UHD wallpapers</span>
+        </label>
+      </div>
+      <br/>
+      <button id="save-wallpaper-conf-btn" class="mui-btn mui-btn--primary op-btn-save-this">Save and apply</button>
+    </div>
+    <!-- END TAB wallpapers -->
+
+    <!-- TAB More -->
+    <div class="mui-tabs__pane" id="pane-default-4">
       <p id="about-prompt">Ataraxia - Refreshing and surprising new tab experience.</p><br/>
       <b><span id="about-current-ver">Current Version: </span><span id="version-code-span"></span></b><br/><br/>
       <a id="check-update-btn" class="mui-btn mui-btn--primary" target="_blank" href="#">Check for updates</a>

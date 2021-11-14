@@ -175,6 +175,34 @@ function recoverCustomBookmarks() {
 	}
 }
 
+
+// wallpaper settings
+
+
+function initWallpaperConf() {
+	// show search box
+	if(readConf('enable_uhd_wallpaper') == 'no') {
+		document.getElementById('use-uhd-wallpaper-checkbox').checked = false;
+	}
+	else {
+		document.getElementById('use-uhd-wallpaper-checkbox').checked = true;
+	}
+}
+
+function changeWallpaperConf() {
+	// update search box conf
+	if (document.getElementById('use-uhd-wallpaper-checkbox').checked == true) {
+		writeConf('enable_uhd_wallpaper', 'yes');
+	}
+	else {
+		writeConf('enable_uhd_wallpaper', 'no');
+	}
+	// change wallpaper_data conf to trigger wallpaper reload when open a new tab
+	writeConf('wallpaper_date', '2001-01-01');
+	alert(i18n('op_saved_alert'));
+}
+
+
 // ------------- exec --------------
 
 
@@ -199,8 +227,14 @@ initCustomBookmarks();
 document.getElementById('save-custom-bkmk-conf').onclick = saveCustomBookmarks;
 document.getElementById('recover-custom-bkmk-conf').onclick = recoverCustomBookmarks;
 
+// init wallpaper
+initWallpaperConf();
+
+// bind save wallpaper conf btn
+document.getElementById('save-wallpaper-conf-btn').onclick = changeWallpaperConf;
+
 // generate url of check update
-document.getElementById('check-update-btn').href = 'https://codingcat.cn/ataraxia/update.html?current=' + CURRENT_VERSION + '&locale=' + CURRENT_LOCALE;
+document.getElementById('check-update-btn').href = 'https://ataraxia.dongxing.xin/update.html?platform=' + CURRENT_BROWSER + '&current=' + CURRENT_VERSION + '&locale=' + CURRENT_LOCALE;
 document.getElementById('version-code-span').innerHTML = CURRENT_VERSION;
 
 

@@ -1,12 +1,12 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "__MSG_extension_name__",
   "short_name": "Ataraxia",
   "default_locale": "zh_CN",
   "author": "Anthony",
-  "homepage_url"    : "https://codingcat.cn/ataraxia/",
+  "homepage_url"    : "https://ataraxia.dongxing.xin",
   "description": "__MSG_extension_desc__",
-  "version": "1.3",
+  "version": "1.4",
   "incognito": "split",
   "chrome_url_overrides": {
     "newtab": "blank.html"
@@ -18,14 +18,16 @@
     "128": "./ata_128.png"
   },
   "permissions": [
-  	"https://www.bing.com/",
-    "storage"
+  	"storage"
   ],
   "optional_permissions": [
     "topSites"
   ],
+  "host_permissions": [
+    "https://www.bing.com/"
+  ],
   "background": {
-    "scripts": ["./scripts/background.js"]
+    "service_worker": "./scripts/background.js"
   },
   "options_page": "options.html"
 }

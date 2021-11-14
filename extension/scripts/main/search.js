@@ -1,11 +1,6 @@
 
 // get search engine conf
 var searchEngines = readConf('search_engine_list');
-if (searchEngines == null) {
-	searchEngines = defaultSearchEngines;
-	writeConf('search_engine_list', defaultSearchEngines);
-}
-
 
 // get current search engine
 function getCurrentEngineName() {
@@ -55,7 +50,7 @@ function switchEngine(){
 function initEngine(){
 	var old_name = getCurrentEngineName();
 	var conf = null;
-	for (var i=0; i<searchEngines.length; i++) {
+	for (var i=0; i<searchEngines.Length; i++) {
 		if (searchEngines[i]['name'] == old_name) {
 			conf = searchEngines[i];
 			break;

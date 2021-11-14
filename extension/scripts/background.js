@@ -9,8 +9,6 @@ chrome.runtime.onInstalled.addListener(function (object) {
 	        console.log("New tab launched with https://ataraxia.dongxing.xin/install.html");
 		});
 
-		// write sync conf
-		chrome.storage.sync.set({"source": "chrome"}, function(){});
 	}
 });
 

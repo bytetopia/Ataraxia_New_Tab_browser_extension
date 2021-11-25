@@ -152,7 +152,7 @@ function initializeConf() {
         custom_bkmk_list: [
             {
                 name: "Ataraxia User Guide",
-                url: "https://ataraxia.dongxing.xin/install.html"
+                url: "https://idealland.app/ataraxia/install.html"
             }
         ],
         enable_uhd_wallpaper: "no",

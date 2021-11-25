@@ -5,7 +5,7 @@
 
 Ataraxia 是一个极致简洁的浏览器新标签页插件，适用于 Google Chrome 和 Microsoft Edge 等 Chromium 内核浏览器。
 
-- 网站： [https://ataraxia.dongxing.xin](https://ataraxia.dongxing.xin)
+- 网站： [https://idealland.app/ataraxia/](https://idealland.app/ataraxia/)
 - 获取适用于 Chrome 的最新版本：[https://aka.ci/atxcr](https://aka.ci/atxcr)
 - 获取适用于 Edge 的最新版本：[https://aka.ci/atxedge](https://aka.ci/atxedge)
 
@@ -27,7 +27,7 @@ Ataraxia 是一个极致简洁的浏览器新标签页插件，适用于 Google 
 
 Ataraxia is a super simple browser new tab extension, designed for Google Chrome, Microsoft Edge and other Chromium based browsers.
 
-- Offcial site: [https://ataraxia.dongxing.xin](https://ataraxia.dongxing.xin)
+- Offcial site: [https://idealland.app/ataraxia/](https://idealland.app/ataraxia/)
 - Get for Chrome: [https://aka.ci/atxcr](https://aka.ci/atxcr)
 - Get for Edge: [https://aka.ci/atxedge](https://aka.ci/atxedge)
 

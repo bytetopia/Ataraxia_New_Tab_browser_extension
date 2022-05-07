@@ -68,19 +68,19 @@ function updateWallpaper(idx){
 	xhr.onreadystatechange = function(){
 		if(xhr.readyState==4){
 			var obj = JSON.parse(xhr.responseText);
-			var url = obj.url;
+			var url = 'https://bing.com' + obj.images[0].url;
 			// if UHD enabled
 			if (readConf('enable_uhd_wallpaper') == 'yes') {
-				url = obj.uhd_url;
+				url = url.replaceAll('1920x1080', 'UHD');
 			}
-			loadAndChangeOnlineWallpaper(url, obj.copyright);
+			loadAndChangeOnlineWallpaper(url, obj.images[0].copyright);
 		}
 		else{
 			showDefaultWallpaper();
 		}
 	}
 	var current_lang = window.navigator.language;
-	xhr.open('get','https://api.idealland.app/bingwp/get_info?cached=1&mkt=' + current_lang + '&offset=' + idx);
+	xhr.open('get','https://www.bing.com/HPImageArchive.aspx?format=js&n=1&mkt=' + current_lang + '&idx=' + idx);
 	xhr.send(null);
 }
 

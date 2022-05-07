@@ -5,7 +5,7 @@
     },
 
     "update_content": {
-        "message": "壁纸源切换至自建缓存 <a href='https://aka.ci/atxSelfhost'>查看详情</a>"
+        "message": "回归纯净 Bing.com API，没有隐私后顾之忧。"
     },
 
 
@@ -110,7 +110,7 @@
     },
 
     "op_wallpaper_uhd_hint2": {
-        "message": "如果发现壁纸加载耗时过长或无法成功加载，建议关闭此项，避免加载 UHD 壁纸。"
+        "message": "如果发现壁纸加载耗时过长或无法成功加载，建议关闭此项。"
     },
 
     "op_wallpaper_uhd_checkbox": {

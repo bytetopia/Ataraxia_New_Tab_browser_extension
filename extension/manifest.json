@@ -6,7 +6,7 @@
   "author": "Anthony",
   "homepage_url"    : "https://idealland.app/ataraxia/",
   "description": "__MSG_extension_desc__",
-  "version": "1.6",
+  "version": "1.7",
   "incognito": "split",
   "chrome_url_overrides": {
     "newtab": "blank.html"
@@ -23,7 +23,7 @@
     "topSites"
   ],
   "host_permissions": [
-    "https://api.idealland.app/bingwp/get_info"
+    "https://*.bing.com/"
   ],
   "background": {
     "service_worker": "./scripts/background.js"

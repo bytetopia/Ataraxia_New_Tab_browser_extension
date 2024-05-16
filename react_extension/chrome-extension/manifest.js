@@ -31,7 +31,6 @@ const manifest = {
     type: 'module',
   },
   action: {
-    default_popup: 'popup/index.html',
     default_icon: 'ata_32.png',
   },
   chrome_url_overrides: {

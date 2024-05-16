@@ -15,10 +15,16 @@ const manifest = {
   name: '__MSG_extension_name__',
   version: packageJson.version,
   description: '__MSG_extension_desc__',
-  permissions: ['storage', 'sidePanel'],
-  side_panel: {
-    default_path: 'sidepanel/index.html',
-  },
+  author: 'Anthony',
+  permissions: [
+    'storage'
+  ],
+  optional_permissions: [
+    "topSites"
+  ],
+  host_permissions: [
+    "https://*.bing.com/"
+  ],
   options_page: 'options/index.html',
   background: {
     service_worker: 'background.iife.js',
@@ -26,32 +32,20 @@ const manifest = {
   },
   action: {
     default_popup: 'popup/index.html',
-    default_icon: 'icon-34.png',
+    default_icon: 'ata_32.png',
   },
   chrome_url_overrides: {
     newtab: 'newtab/index.html',
   },
   icons: {
-    128: 'icon-128.png',
+    16: "ata_16.png",
+    32: "ata_32.png",
+    48: "ata_48.png",
+    128: "ata_128.png"
   },
-  content_scripts: [
-    {
-      matches: ['http://*/*', 'https://*/*', '<all_urls>'],
-      js: ['content/index.iife.js'],
-    },
-    {
-      matches: ['http://*/*', 'https://*/*', '<all_urls>'],
-      js: ['content-ui/index.iife.js'],
-    },
-    {
-      matches: ['http://*/*', 'https://*/*', '<all_urls>'],
-      css: ['content.css'], // public folder
-    },
-  ],
-  devtools_page: 'devtools/index.html',
   web_accessible_resources: [
     {
-      resources: ['*.js', '*.css', '*.svg', 'icon-128.png', 'icon-34.png'],
+      resources: ['*.js', '*.css', '*.svg', 'ata_16.png', 'ata_32.png', 'ata_48.png', 'ata_128.png'],
       matches: ['*://*/*'],
     },
   ],

@@ -14,6 +14,5 @@ export default async function getWallpaper (idx: number, isUHD: boolean) : Promi
 	if (isUHD) {
 		url = url.replaceAll('1920x1080', 'UHD');
 	}
-	return data;
 	return { url: url, copyright: data.images[0].copyright};
 }

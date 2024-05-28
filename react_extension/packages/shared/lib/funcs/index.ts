@@ -1,4 +1,4 @@
 
-import getWallpaper from './wallpaper';
+import {loadWallpaper, updateWallpaper} from './wallpaper';
 
-export { getWallpaper };
+export {loadWallpaper, updateWallpaper};

@@ -1,4 +1,4 @@
 
-import {loadWallpaper, updateWallpaper} from './wallpaper';
+import {loadLocalStorageWallpaper, updateWallpaper, getPrevOrNextWallpaper} from './wallpaper';
 
-export {loadWallpaper, updateWallpaper};
+export {loadLocalStorageWallpaper, updateWallpaper, getPrevOrNextWallpaper};

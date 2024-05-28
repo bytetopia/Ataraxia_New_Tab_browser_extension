@@ -1,6 +1,6 @@
 import { readConf, writeConf } from '../baseFuncs';
 
-type WallpaperInfo = { url: string, copyright: string, imageUpdateDate: string, offsetIdx: number }
+type WallpaperInfo = { url: string, copyright: string, imageUpdateDate: string, offsetIdx: number, isUHD: boolean }
 
 const backgroundImageLSKey = 'backgroundImage';
 const copyrightLSKey = 'copyright';
@@ -38,9 +38,11 @@ const saveWallpaperInfoToLocalStorage = (info: WallpaperInfo) => {
 	writeConf(copyrightLSKey, info.copyright);
 	writeConf(imageUpdateDateLSKey, getDateString());
 	writeConf(imageOffsetIdxLSKey, info.offsetIdx);
+	writeConf(isUHDLSKey, info.isUHD);
 };
 
-const getWallpaperInfoFromBing = async (idx: number, isUHD: boolean): Promise<WallpaperInfo> => {
+const getWallpaperInfoFromBing = async (idx: number): Promise<WallpaperInfo> => {
+	let isUHD = readConf(isUHDLSKey);
 	let currentLang = window.navigator.language;
 	let reqUrl = 'https://www.bing.com/HPImageArchive.aspx?format=js&n=1&mkt=' + currentLang + '&idx=' + idx;
 	const response = await fetch(reqUrl);
@@ -52,7 +54,7 @@ const getWallpaperInfoFromBing = async (idx: number, isUHD: boolean): Promise<Wa
 	if (isUHD) {
 		url = url.replaceAll('1920x1080', 'UHD');
 	}
-	return { url: url, copyright: data.images[0].copyright, imageUpdateDate: getDateString(), offsetIdx: idx };
+	return { url: url, copyright: data.images[0].copyright, imageUpdateDate: getDateString(), offsetIdx: idx, isUHD: isUHD };
 }
 
 const preloadImageFromUrl = async (url: string): Promise<HTMLImageElement> => {
@@ -81,9 +83,7 @@ const updateWallpaper = async (): Promise<boolean> => {
 
 	try {
 		// fetch latest info from Bing
-		let isUHD = readConf(isUHDLSKey);
-		let info = await getWallpaperInfoFromBing(0, isUHD);
-
+		let info = await getWallpaperInfoFromBing(0);
 		// preload and save wallpaper info
 		await preloadImageFromUrl(info.url);
 		saveWallpaperInfoToLocalStorage(info);
@@ -99,16 +99,42 @@ const updateWallpaper = async (): Promise<boolean> => {
  * Load wallpaper info from local storage.
  * @returns wallpaper info.
  */
-const loadWallpaper = (): WallpaperInfo | undefined => {
+const loadLocalStorageWallpaper = (): WallpaperInfo | undefined => {
 	let url = readConf(backgroundImageLSKey);
 	let copyright = readConf(copyrightLSKey);
 	let imageUpdateDate = readConf(imageUpdateDateLSKey);
 	let offsetIdx = readConf(imageOffsetIdxLSKey);
+	let isUHD = readConf(isUHDLSKey);
 	if (url !== undefined && copyright !== undefined && imageUpdateDate !== undefined && offsetIdx !== undefined) {
-		return { url, copyright, imageUpdateDate, offsetIdx };
+		return { url, copyright, imageUpdateDate, offsetIdx, isUHD };
 	}
 	return undefined;
 };
 
-export { updateWallpaper, loadWallpaper };
+/**
+ * Get prev or next wallpaper
+ * @returns True means wallpaper info in local storage is updated, false means no change. 
+ */
+const getPrevOrNextWallpaper = async (isPrev: boolean): Promise<boolean> => {
+	let offsetIdx = readConf(imageOffsetIdxLSKey);
+	if (isPrev) {
+		if (offsetIdx >= 7) { // Bing API supports offset index maximum number 7
+			return false;
+		}
+		offsetIdx += 1;
+	}
+	else {
+		if (offsetIdx <= 0) { // can't go to next wallpaper
+			return false;
+		}
+		offsetIdx -= 1;
+	}
+
+	let info = await getWallpaperInfoFromBing(offsetIdx);
+	await preloadImageFromUrl(info.url);
+	saveWallpaperInfoToLocalStorage(info);
+	return true;
+} 
+
+export { updateWallpaper, loadLocalStorageWallpaper, getPrevOrNextWallpaper };
 

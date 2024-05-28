@@ -18,7 +18,7 @@ const LoadingAnimated: React.FC = () => {
 
   return (
     <div className="flex justify-center items-center h-screen">
-      <span className="text-xl font-medium">loading{dots}</span>
+      <span className="text-md font-small text-gray-500">loading{dots}</span>
     </div>
   );
 };

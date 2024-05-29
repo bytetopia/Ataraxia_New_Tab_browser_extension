@@ -7,6 +7,7 @@ const copyrightLSKey = 'copyright';
 const imageUpdateDateLSKey = 'imageUpdateDate';
 const imageOffsetIdxLSKey = 'imageOffsetIdx';
 const isUHDLSKey = 'isUHD';
+const isUHDDefaultValue = false;
 
 const getDateString = (): string => {
 	let date = new Date();
@@ -38,11 +39,11 @@ const saveWallpaperInfoToLocalStorage = (info: WallpaperInfo) => {
 	writeConf(copyrightLSKey, info.copyright);
 	writeConf(imageUpdateDateLSKey, getDateString());
 	writeConf(imageOffsetIdxLSKey, info.offsetIdx);
-	writeConf(isUHDLSKey, info.isUHD);
+	writeConf(isUHDLSKey, info.isUHD ?? isUHDDefaultValue);
 };
 
 const getWallpaperInfoFromBing = async (idx: number): Promise<WallpaperInfo> => {
-	let isUHD = readConf(isUHDLSKey);
+	let isUHD = readConf(isUHDLSKey) ?? isUHDDefaultValue;
 	let currentLang = window.navigator.language;
 	let reqUrl = 'https://www.bing.com/HPImageArchive.aspx?format=js&n=1&mkt=' + currentLang + '&idx=' + idx;
 	const response = await fetch(reqUrl);
@@ -105,7 +106,7 @@ const loadLocalStorageWallpaper = (): WallpaperInfo | undefined => {
 	let imageUpdateDate = readConf(imageUpdateDateLSKey);
 	let offsetIdx = readConf(imageOffsetIdxLSKey);
 	let isUHD = readConf(isUHDLSKey);
-	if (url !== undefined && copyright !== undefined && imageUpdateDate !== undefined && offsetIdx !== undefined) {
+	if (url !== undefined && copyright !== undefined && imageUpdateDate !== undefined && offsetIdx !== undefined && isUHD !== undefined) {
 		return { url, copyright, imageUpdateDate, offsetIdx, isUHD };
 	}
 	return undefined;

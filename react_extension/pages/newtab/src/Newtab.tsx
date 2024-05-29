@@ -9,13 +9,23 @@ import {
   updateWallpaper,
   getPrevOrNextWallpaper,
 } from '@chrome-extension-boilerplate/shared';
-import LoadingAnimated from './LoadingAnimated';
+import { Input, Tooltip } from '@mui/joy';
+import CircularProgress from '@mui/joy/CircularProgress';
+import IconButton from '@mui/joy/IconButton';
+import Menu, { menuClasses } from '@mui/joy/Menu';
+import MenuItem from '@mui/joy/MenuItem';
+import ListItemDecorator from '@mui/joy/ListItemDecorator';
+import ListDivider from '@mui/joy/ListDivider';
+import { Apps, Update, Edit, Settings } from '@mui/icons-material';
+import MenuButton from '@mui/joy/MenuButton';
+import Dropdown from '@mui/joy/Dropdown';
 import { useEffect, useState } from 'react';
 
 
 const Newtab = () => {
   const theme = useStorageSuspense(exampleThemeStorage);
-  const [showMenu, setShowMenu] = useState(false);
+  const [showTopSitesMenu, setShowTopSitesMenu] = useState(false);
+  const [showSearchEngineMenu, setShowSearchEngineMenu] = useState(false);
   const [wallpaperImage, setWallpaperImage] = useState('luke-chesser-pJadQetzTkI-unsplash.jpg');
   const [wallpaperInfoText, setWallpaperInfoText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -65,7 +75,9 @@ const Newtab = () => {
   return (
   <>
     {isLoading ? 
-      <LoadingAnimated />
+      <div className="flex justify-center items-center h-screen">
+        <CircularProgress color="neutral" size="sm" variant="solid"/>
+      </div>
       :
       <div className="App relative min-h-screen bg-gray-100" style={{ 
         backgroundImage: 'url(\'' + wallpaperImage + '\')', 	
@@ -76,41 +88,99 @@ const Newtab = () => {
         <div className="">
           <div className="absolute top-[30px] right-[30px]">
             <div className="">
-              <button onMouseEnter={() => !showMenu ? setShowMenu(true) : {}}>
-                <svg className="icon h-4 w-4" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6899" width="16" height="16"><path d="M40.083 452.523h413.703V38.821H40.083v413.702z m0 531.898h413.703V570.718H40.083v413.703z m531.903-945.6v413.702h413.702V38.821H571.986z m0 945.6h413.702V570.718H571.986v413.703z" fill="#ffffff" p-id="6900"></path></svg>
-              </button>
-              {showMenu && (
-                <div className="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5" onMouseLeave={() => showMenu ? setShowMenu(false) : {}}>
-                  <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                    <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Your Profile</a>
-                    <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</a>
-                    <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
-                  </div>
-                </div>
-              )}
+            <Dropdown>
+              <MenuButton
+                onMouseEnter={() => setShowTopSitesMenu(true)}
+                slots={{ root: IconButton }}
+                slotProps={{ root: { variant: 'plain', color: 'neutral' } }}
+              >
+                <Apps className="text-white"/>
+              </MenuButton>
+              <Menu placement="bottom-end" open={showTopSitesMenu} onMouseLeave={() => setShowTopSitesMenu(false)}>
+                <MenuItem>
+                  <ListItemDecorator>
+                    <Edit />
+                  </ListItemDecorator>{' '}
+                  Edit post 233
+                </MenuItem>
+                <MenuItem disabled>
+                  <ListItemDecorator />
+                  Draft post
+                </MenuItem>
+                <ListDivider />
+                <MenuItem color="primary">
+                  <ListItemDecorator sx={{ color: 'inherit' }}>
+                    <Update />
+                  </ListItemDecorator>{' '}
+                  Check for update
+                </MenuItem>
+                <MenuItem color="primary">
+                  <ListItemDecorator sx={{ color: 'inherit' }}>
+                    <Settings />
+                  </ListItemDecorator>{' '}
+                  Settings
+                </MenuItem>
+              </Menu>
+            </Dropdown>
             </div>
           </div>
           <div className="absolute ml-[5%] mt-[20%] md:mt-[15%] lg:mt-[15%]">
             <div className="flex flex-row justify-center items-start">
-              <img src="icons/google.png" alt="logo" className="h-10 mr-5" />
-              <input type="text" className="text-base pl-3 pr-3 h-10 min-w-64 w-80 mr-10 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Search..." />
+              <Dropdown>
+                <MenuButton
+                  onMouseEnter={() => setShowSearchEngineMenu(true)}
+                  slots={{ root: IconButton }}
+                  slotProps={{ root: { variant: 'plain', color: 'neutral' } }}
+                >
+                  <img src="icons/google.png" alt="logo" className="h-10 mr-5" onMouseEnter={() => setShowSearchEngineMenu(true)}/>
+                </MenuButton>
+                <Menu placement="bottom-start" open={showSearchEngineMenu} onMouseLeave={() => setShowSearchEngineMenu(false)}>
+                  <MenuItem>
+                    <ListItemDecorator>
+                      <Edit />
+                    </ListItemDecorator>{' '}
+                    Edit post 233
+                  </MenuItem>
+                  <MenuItem disabled>
+                    <ListItemDecorator />
+                    Draft post
+                  </MenuItem>
+                  <ListDivider />
+                  <MenuItem color="primary">
+                    <ListItemDecorator sx={{ color: 'inherit' }}>
+                      <Update />
+                    </ListItemDecorator>{' '}
+                    Check for update
+                  </MenuItem>
+                  <MenuItem color="primary">
+                    <ListItemDecorator sx={{ color: 'inherit' }}>
+                      <Settings />
+                    </ListItemDecorator>{' '}
+                    Settings
+                  </MenuItem>
+                </Menu>
+              </Dropdown>
+              <Input size="lg" className="min-w-64 w-80" placeholder="Search..."/>
             </div>
           </div>
           <div onMouseEnter={() => setShowPrevNextButton(true)} onMouseLeave={() => setShowPrevNextButton(false)} 
               className="absolute bottom-[20px] right-[20px] rounded-lg hover:bg-black hover:bg-opacity-75 px-3 py-2">
             <div className={ (showPrevNextButton ? "inline-block" : "hidden") + " text-right text-white flex flex-row-reverse mb-1"}>
-              <a download="" href={wallpaperImage} target="_blank" title="Download wallpaper" className="ml-1 inline-block flex flex-row">
-                <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3050" width="18" height="18"><path d="M512.01483154 141.3103025c8.52813721 0 15.79064917 2.99102759 21.85675026 9.06701684 6.02655053 6.08093262 9.05712867 13.2890625 9.05712937 21.83697533v388.8138423l70.74151588-70.96893311c5.93261719-5.97216773 13.24951195-8.85443115 21.9506836-8.85443115 8.84454369 0 16.20098901 2.88226342 22.08911156 8.75061035 5.88317847 5.87329102 8.80004906 13.2890625 8.80004835 22.14843774 0 8.65173364-2.95642114 15.96368432-8.91375732 21.93585206l-123.58135939 123.59619164c-5.95239281 5.87329102-13.2643435 8.85937523-21.98034667 8.85937452-8.71105981 0-16.02795386-2.98608422-21.98034669-8.85937452l-123.56158447-123.59619165c-5.97216773-6.27868676-8.92858886-13.59558082-8.92858887-21.93585205 0-8.55285621 3.00585914-15.86480689 9.07196022-21.94079613 6.01666236-5.97216773 13.30883813-9.06207276 21.83697533-9.06207276 8.71600318 0 16.02795386 2.98608422 21.97045851 8.96319604l70.72174096 70.96398902V172.11047387c0-8.44409203 3.01080323-15.76098609 9.07690429-21.83697533C496.268677 144.3013308 503.5460205 141.21142578 512.0791018 141.21142578l-0.06427026 0.09887672z m92.69219948 123.59619164h123.59619164c25.57946753 0 47.42633033 8.96319604 65.52575684 27.09228492 18.10931396 18.1290896 27.16149926 39.96112085 27.16149925 65.60485864v432.48779297c0 25.64868188-9.0521853 47.48071313-27.16149925 65.60485863-18.09448242 18.03021217-39.9462893 27.09228492-65.53070093 27.09228492h-432.58666969c-25.57452416 0-47.43127442-9.06207276-65.54058838-27.09228492C212.06170654 837.57708717 203.00952125 815.74011254 203.00952125 790.09143067V357.60363769c0-25.64373779 9.0521853-47.47576904 27.16149926-65.60485863s39.96606422-27.09228492 65.54058837-27.09228492h123.5813601v61.79809547H295.71160888c-8.52813721 0-15.80053734 2.99102759-21.86663841 8.96319604-6.01666236 6.17980933-9.05712867 13.3928833-9.05712867 21.94079613v432.58666968c0 8.44409203 3.04046631 15.75604272 9.05712867 21.73315454 6.06610107 6.17980933 13.33850122 9.16589356 21.86663841 9.16589355h432.58666969c8.52813721 0 15.81042481-2.98608422 21.83697534-9.16589355 6.06610107-5.97711182 9.0769043-13.2890625 9.07690429-21.73315454v-432.58666968c0-8.55285621-3.01080323-15.76098609-9.07690429-21.94079613-6.02655053-5.97216773-13.30883813-8.95825195-21.83697534-8.95825196H604.70703102v-61.79809546z" p-id="3051" fill="#ffffff"></path></svg>
-                Download
-              </a>
-              <div title="Next wallpaper" onClick={() => goToPrevOrNextWallpaper(false)} className="ml-1 inline-block flex flex-row">
-                <svg viewBox="0 0 1280 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2454" width="16" height="16"><path d="M740.07331363 141.33502221c13.09501624 0 24.03945947 4.38766503 32.96928381 13.39164711l324.44000245 324.316406C1106.41860453 488.05323768 1110.84952799 498.9976809 1110.84952799 512c0 13.1320951-4.43092346 24.07653833-13.3669281 32.95692468l-324.44000245 324.44000244c-8.93600464 9.01634193-19.87426758 13.3916471-32.96928381 13.3916471-13.2618711 0-24.34844947-4.37530518-33.11759996-13.1320951-8.80622864-8.88656592-13.22479224-19.96078515-13.22479225-33.21647668 0-13.0023191 4.48036218-23.94676232 13.37928796-32.95692467L952.66494265 558.34857177H230.24520364c-12.79220581 0-23.69338989-4.51126075-32.77153038-13.5214231C188.40789262 535.69338989 183.87809244 524.87872338 183.87809244 512c0-12.74894738 4.52980018-23.68721032 13.59558082-32.70355224C206.55799333 470.16268897 217.45917741 465.65142823 230.23902408 465.65142823h722.42591857L707.11020938 220.51692223c-8.89892578-8.88038635-13.37928796-19.95460487-13.37928796-32.95692467 0-13.2618711 4.4185636-24.33609033 13.22479225-33.08670068C715.72486344 145.58673096 726.81144182 141.21142578 740.07331363 141.21142578v0.12359643z" p-id="2455" fill="#ffffff"></path></svg>
-                Next
-              </div>
-              <div title="Previous wallpaper" onClick={() => goToPrevOrNextWallpaper(true)} className="ml-1 inline-block flex flex-row">
-                <svg viewBox="0 0 1280 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2156" width="16" height="16"><path d="M554.64194766 141.21142578c12.79220581 0 23.71810889 4.50508117 32.77152968 13.64501953 9.05960107 9.01016235 13.59558082 19.95460487 13.59558153 32.6911924 0 13.1320951-4.57305932 24.07653833-13.76861596 32.95692466l-245.12832642 245.09124757h722.35794044c12.79838538 0 23.69338989 4.50508117 32.81478882 13.64501953 9.02252221 9.01016235 13.56468224 19.94842529 13.56468224 32.69119239 0 12.87872338-4.54216003 23.81698632-13.57086182 32.82714867-9.11521935 9.01016235-20.01022315 13.51524353-32.80242896 13.51524353H342.11829606l245.12214685 245.09124756c9.19555664 9.01016235 13.76861596 19.95460487 13.76861596 32.9507444 0 12.8725431-4.53598046 23.81698632-13.59558153 32.82714867-9.05342078 9.13993836-19.98550415 13.64501953-32.77152968 13.64501953-13.05175781 0-24.03945947-4.50508117-32.95692467-13.38546753L197.2573804 545.01872253C188.34609476 535.62541175 183.87809244 524.54501367 183.87809244 512.06179786c0-12.60681153 4.46800232-23.55125404 13.37928796-32.95074439l324.42764259-324.37820459C530.8620402 145.84628296 541.84356156 141.33502221 554.64194766 141.33502221V141.21142578z" p-id="2157" fill="#ffffff"></path></svg>
-                Prev
-              </div>
+              <Tooltip title="Download" variant="solid">
+                <a download="" href={wallpaperImage} target="_blank" className="ml-1 inline-block flex flex-row cursor-pointer">
+                  <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4621" width="16" height="16"><path d="M779.95324 65.291029 243.954663 65.291029c-98.579179 0-178.665169 79.997985-178.665169 178.709171l0 535.9996c0 98.713232 80.08599 178.711218 178.665169 178.711218l535.998577 0c98.755188 0 178.75522-79.997985 178.75522-178.711218L958.70846 244.0002C958.70846 145.289014 878.708428 65.291029 779.95324 65.291029zM869.374852 735.37751c0 73.977875-60.021002 133.912919-133.998877 133.912919L288.623002 869.290429c-73.979922 0-133.912919-59.935044-133.912919-133.912919L154.710083 288.667515c0-73.979922 59.932997-133.956921 133.912919-133.956921l446.752973 0c73.977875 0 133.998877 59.977 133.998877 133.956921L869.374852 735.37751zM288.623002 690.710194l446.752973 0 0 89.289606L288.623002 779.9998 288.623002 690.710194zM511.955486 646.043902 378.042567 467.376687l89.333608 0L467.376175 244.0002l89.245603 0 0 223.376487 89.421612 0L511.955486 646.043902z" p-id="4622" fill="#ffffff"></path></svg>
+                </a>
+              </Tooltip>
+              <Tooltip title="Next" variant="solid">
+                <div onClick={() => goToPrevOrNextWallpaper(false)} className="ml-1 inline-block flex flex-row cursor-pointer">
+                  <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4323" width="16" height="16"><path d="M628.050598 444.964234l-62.622246 67.039859L377.580033 310.980707l62.605873-67.01223L628.050598 444.964234zM958.70846 243.968477l0 536.105001c0 98.730629-79.971379 178.700985-178.700985 178.700985L243.903497 958.774463c-98.642624 0-178.61298-79.969333-178.61298-178.700985L65.290517 243.968477c0-98.642624 79.969333-178.744987 178.61298-178.744987l536.105001 0C878.73708 65.22349 958.70846 145.32483 958.70846 243.968477zM869.401458 288.599977c0-73.994248-60.075237-133.939525-134.069485-133.939525L288.578999 154.660452c-74.03825 0-134.027529 59.945277-134.027529 133.939525l0 446.797999c0 73.994248 59.989279 134.069485 134.027529 134.069485l446.752973 0c73.994248 0 134.069485-60.075237 134.069485-134.069485L869.401458 288.599977zM565.442678 512.020466l-0.01535-0.016373L377.580033 713.103204l62.605873 67.056232 250.470565-268.13897-62.605873-67.056232L565.442678 512.020466z" p-id="4324" fill="#ffffff"></path></svg>
+                </div>
+              </Tooltip>
+              <Tooltip title="Previous" variant="solid">
+                <div onClick={() => goToPrevOrNextWallpaper(true)} className="ml-1 inline-block flex flex-row cursor-pointer">
+                  <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4025" width="16" height="16"><path d="M780.007475 65.22349 243.903497 65.22349c-98.642624 0-178.61298 80.101339-178.61298 178.744987l0 536.105001c0 98.730629 79.969333 178.700985 178.61298 178.700985l536.105001 0c98.728582 0 178.700985-79.969333 178.700985-178.700985L958.709483 243.968477C958.70846 145.32483 878.73708 65.22349 780.007475 65.22349zM869.44546 735.397976c0 73.994248-60.119239 134.069485-134.113487 134.069485L288.667004 869.467461c-74.082252 0-134.071532-60.075237-134.071532-134.069485L154.595472 288.599977c0-73.994248 59.989279-133.939525 134.071532-133.939525l446.664969 0c73.994248 0 134.113487 59.945277 134.113487 133.939525L869.44546 735.397976zM333.254501 512.020466l62.561871-67.056232 250.602571 268.13897-62.60792 67.056232L333.254501 512.020466zM458.553229 512.020466l-62.73788-67.056232 187.994652-200.995757 62.60792 67.01223L458.553229 512.020466z" p-id="4026" fill="#ffffff"></path></svg>
+                </div>
+              </Tooltip>
             </div>
             <div className="text-right text-white">
               <p>{wallpaperInfoText}</p>

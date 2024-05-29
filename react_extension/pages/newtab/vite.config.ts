@@ -20,7 +20,7 @@ export default defineConfig({
   publicDir: resolve(rootDir, 'public'),
   build: {
     outDir: resolve(rootDir, '..', '..', 'dist', 'newtab'),
-    sourcemap: isDev,
+    sourcemap: false,
     minify: isProduction,
     reportCompressedSize: isProduction,
     rollupOptions: {

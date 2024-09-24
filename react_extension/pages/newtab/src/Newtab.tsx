@@ -128,6 +128,7 @@ const Newtab = () => {
             <div className="flex flex-row justify-center items-start">
               <Dropdown>
                 <MenuButton
+                  variant="outlined"
                   onMouseEnter={() => setShowSearchEngineMenu(true)}
                   slots={{ root: IconButton }}
                   slotProps={{ root: { variant: 'plain', color: 'neutral' } }}

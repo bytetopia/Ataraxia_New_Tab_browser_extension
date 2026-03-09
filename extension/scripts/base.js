@@ -11,18 +11,18 @@ function appendOnLoadEvent(func) {
     var old_onload = window.onload;
     if (typeof window.onload != 'function') { // this is the first onload func
         window.onload = func;
-    } else {  
+    } else {
         window.onload = function() {
-            oldonload();  // call old onload func
+            old_onload();  // call old onload func
             func();  // call current func
         }
     }
 }
 
-// get current date string 
+// get current date string
 function getDateString() {
 	var date = new Date();
-	var result = "" + date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate();
+	var result = "" + date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
 	return result;
 }
 
@@ -163,10 +163,12 @@ function initializeConf() {
         last_open_version: "0"
     }
 
-    for (k in defaultSettings) {
-        if (readConf(k) == undefined) {
-            writeConf(k, defaultSettings[k]);
-            console.log(" set default conf: ", k, " = ", defaultSettings[k]);
+    for (var k in defaultSettings) {
+        if (Object.prototype.hasOwnProperty.call(defaultSettings, k)) {
+            if (readConf(k) == undefined) {
+                writeConf(k, defaultSettings[k]);
+                console.log(" set default conf: ", k, " = ", defaultSettings[k]);
+            }
         }
     }
 

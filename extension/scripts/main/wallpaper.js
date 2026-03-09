@@ -1,4 +1,7 @@
 
+// current wallpaper url (for download link)
+var currentWallpaperUrl = '';
+
 // set wallpaper to default
 function showDefaultWallpaper() {
 	// set wallpaper
@@ -11,14 +14,14 @@ function showDefaultWallpaper() {
 // set footer text
 function setFooterText(text) {
 	var footer_text = document.getElementById('footer-text');
-	footer_text.innerHTML = text;
+	footer_text.textContent = text;
 	// display / hide the uhd badge
 	var uhd_badge = document.getElementById('uhd-badge');
 	if (readConf('enable_uhd_wallpaper') == 'yes') {
-		uhd_badge.innerHTML = i18n('btr_download_wallpaper_uhd_badge');
+		uhd_badge.textContent = i18n('btr_download_wallpaper_uhd_badge');
 	}
 	else {
-		uhd_badge.innerHTML = '';
+		uhd_badge.textContent = '';
 	}
 }
 
@@ -46,7 +49,7 @@ function loadAndChangeOnlineWallpaper(url, text) {
 	var tmp_img = new Image();
 	tmp_img.src = url;
 	tmp_img.onload = function(){
-	  	// set wallpaper
+  	// set wallpaper
 		var body = document.getElementById('main-body');
 		body.style.backgroundImage = "url('" + url + "')";
 		// set footer text
@@ -57,16 +60,17 @@ function loadAndChangeOnlineWallpaper(url, text) {
 		writeConf("wallpaper_url", url);
 		writeConf("wallpaper_text", text);
 		// set download link
+		currentWallpaperUrl = url;
 		setDownloadLink();
 	};
 }
 
-// get latest wallpaper url from bing.com 
+// get latest wallpaper url from bing.com
 // then load and change wallpaper
 function updateWallpaper(idx){
 	var xhr = new XMLHttpRequest();
-	xhr.onreadystatechange = function(){
-		if(xhr.readyState==4){
+	xhr.onload = function(){
+		if (xhr.status === 200) {
 			var obj = JSON.parse(xhr.responseText);
 			var url = 'https://bing.com' + obj.images[0].url;
 			// if UHD enabled
@@ -74,11 +78,13 @@ function updateWallpaper(idx){
 				url = url.replaceAll('1920x1080', 'UHD');
 			}
 			loadAndChangeOnlineWallpaper(url, obj.images[0].copyright);
-		}
-		else{
+		} else {
 			showDefaultWallpaper();
 		}
-	}
+	};
+	xhr.onerror = function(){
+		showDefaultWallpaper();
+	};
 	var current_lang = window.navigator.language;
 	xhr.open('get','https://www.bing.com/HPImageArchive.aspx?format=js&n=1&mkt=' + current_lang + '&idx=' + idx);
 	xhr.send(null);
@@ -126,7 +132,7 @@ function switchOldWallpaper(){
 // set wallpaper download link
 function setDownloadLink() {
 	var downloadLink = document.getElementById('wallpaper-download-link');
-	downloadLink.href = document.getElementById('main-body').style.backgroundImage.replace('url("', '').replace('")','');
+	downloadLink.href = currentWallpaperUrl;
 	downloadLink.download = 'bing-wallpaper-' + getDateString();
 }
 

@@ -148,7 +148,7 @@ function initTopSitesBtn() {
 	      else {
 	      	// no permission, but config is open. this is not a normal status
 	      	// change conf
-	      	writeConf('show_to_sites', 'no');
+	      	writeConf('show_top_sites', 'no');
 	      	// show open btn, hide close btn
 	      	close_btn.style.display = 'none';
 	      }

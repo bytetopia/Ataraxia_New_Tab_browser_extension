@@ -29,22 +29,24 @@ function setFooterText(text) {
 function showLoadingAnim() {
 	var circle = document.getElementById('loading-circle');
 	circle.style.display = 'inline-block';
-	// set footer text
 	setFooterText('Updating wallpaper ...');
+	document.getElementById('change-wallpaper').style.display = 'none';
+	document.getElementById('change-wallpaper-next').style.display = 'none';
+	document.getElementById('wallpaper-download-link').style.display = 'none';
 }
 
 // hide loading animation
 function hideLoadingAnim() {
 	var circle = document.getElementById('loading-circle');
 	circle.style.display = 'none';
+	document.getElementById('change-wallpaper').style.removeProperty('display');
+	document.getElementById('change-wallpaper-next').style.removeProperty('display');
+	document.getElementById('wallpaper-download-link').style.removeProperty('display');
 }
 
 // pre-load image from url
 // then change background image and footer text after loading is finished
 function loadAndChangeOnlineWallpaper(url, text) {
-	showDefaultWallpaper();
-	showLoadingAnim();
-	setFooterText('Updating wallpaper ...');
 	// preload wallpaper
 	var tmp_img = new Image();
 	tmp_img.src = url;
@@ -68,6 +70,7 @@ function loadAndChangeOnlineWallpaper(url, text) {
 // get latest wallpaper url from bing.com
 // then load and change wallpaper
 function updateWallpaper(idx){
+	showLoadingAnim();
 	var xhr = new XMLHttpRequest();
 	xhr.onload = function(){
 		if (xhr.status === 200) {
@@ -114,21 +117,6 @@ function initWallpaper(){
 	}
 }
 
-// if user want to show old wallpapers.
-function switchOldWallpaper(){
-	var MAX_OLD_DAYS = 7;
-	// calculate idx
-	var cache_idx = readConf("offset_idx");
-	if (cache_idx === "") {
-		cache_idx = 0;
-	}
-	cache_idx = parseInt(cache_idx);
-	cache_idx = (cache_idx + 1) % MAX_OLD_DAYS;
-	writeConf("offset_idx", cache_idx.toString());
-	// reload wallpaper
-	updateWallpaper(cache_idx);
-}
-
 // set wallpaper download link
 function setDownloadLink() {
 	var downloadLink = document.getElementById('wallpaper-download-link');
@@ -136,13 +124,38 @@ function setDownloadLink() {
 	downloadLink.download = 'bing-wallpaper-' + getDateString();
 }
 
+// show a toast message that auto-dismisses
+function showToast(message) {
+	spop({
+		template: message,
+		style: 'default',
+		autoclose: 3000,
+		overlap: false
+	});
+}
+
+// switch wallpaper by offset delta (+1 = older, -1 = newer)
+function switchWallpaperByDelta(delta) {
+	var MAX_IDX = 6; // bing supports up to 7 days back (idx 0..6)
+	var cache_idx = parseInt(readConf("offset_idx") || "0");
+	var new_idx = cache_idx + delta;
+	if (new_idx > MAX_IDX) {
+		showToast(i18n('btr_wallpaper_oldest_toast'));
+		return;
+	}
+	if (new_idx < 0) {
+		showToast(i18n('btr_wallpaper_today_toast'));
+		return;
+	}
+	writeConf("offset_idx", new_idx.toString());
+	updateWallpaper(new_idx);
+}
 
 // --------------------------------------------------
 
 // init wallpaper
 initWallpaper();
 
-// bind switch old wallpaper click event
-var change_wp_btn = document.getElementById('change-wallpaper');
-change_wp_btn.onclick = switchOldWallpaper;
-
+// bind prev/next wallpaper click events
+document.getElementById('change-wallpaper').onclick = function() { switchWallpaperByDelta(1); };
+document.getElementById('change-wallpaper-next').onclick = function() { switchWallpaperByDelta(-1); };

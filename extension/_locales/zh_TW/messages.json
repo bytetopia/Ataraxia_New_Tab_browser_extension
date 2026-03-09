@@ -5,7 +5,7 @@
     },
 
     "update_content": {
-        "message": "回歸純淨 Bing.com API，沒有隱私後顧之憂。"
+        "message": "歡迎！我們做了一些優化，提升你的使用體驗。"
     },
 
     "new_tab_title": {
@@ -37,7 +37,19 @@
     },
 
     "btr_change_wallpaper_btn": {
-        "message": "換一張背景圖"
+        "message": "切換到前一天的壁紙"
+    },
+
+    "btr_change_wallpaper_next_btn": {
+        "message": "切換到後一天的壁紙"
+    },
+
+    "btr_wallpaper_oldest_toast": {
+        "message": "已經是最早的壁紙了（7天前）。"
+    },
+
+    "btr_wallpaper_today_toast": {
+        "message": "已經是今天的壁紙了。"
     },
 
     "btr_download_wallpaper_btn": {

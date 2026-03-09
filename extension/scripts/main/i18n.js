@@ -19,10 +19,16 @@ function i18n_tpr_settings_btn() {
 	document.getElementById('open-options-btn-text').innerHTML = i18n('tpr_settings_btn');
 }
 
-// bottom-right change wallpaper btn 
+// bottom-right change wallpaper btn
 function i18n_btr_change_wallpaper_btn() {
 	var x = document.getElementById('change-wallpaper');
 	x.title = i18n('btr_change_wallpaper_btn');
+}
+
+// bottom-right change wallpaper next btn
+function i18n_btr_change_wallpaper_next_btn() {
+	var x = document.getElementById('change-wallpaper-next');
+	x.title = i18n('btr_change_wallpaper_next_btn');
 }
 
 // bottom-right download wallpaper btn 
@@ -42,6 +48,7 @@ function exec_i18n() {
 	i18n_page_title();
 	i18n_search_logo_hover_tip();
 	i18n_btr_change_wallpaper_btn();
+	i18n_btr_change_wallpaper_next_btn();
 	i18n_tpr_check_update_btn();
 	i18n_tpr_settings_btn();
 	i18n_btr_download_wallpaper_btn();

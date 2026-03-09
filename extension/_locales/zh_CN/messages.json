@@ -5,7 +5,7 @@
     },
 
     "update_content": {
-        "message": "回归纯净 Bing.com API，没有隐私后顾之忧。"
+        "message": "欢迎！我们做了一些优化，提升你的使用体验。"
     },
 
 
@@ -38,7 +38,19 @@
     },
 
     "btr_change_wallpaper_btn": {
-        "message": "换一张背景图"
+        "message": "切换到前一天的壁纸"
+    },
+
+    "btr_change_wallpaper_next_btn": {
+        "message": "切换到后一天的壁纸"
+    },
+
+    "btr_wallpaper_oldest_toast": {
+        "message": "已经是最早的壁纸了（7天前）。"
+    },
+
+    "btr_wallpaper_today_toast": {
+        "message": "已经是今天的壁纸了。"
     },
 
     "btr_download_wallpaper_btn": {

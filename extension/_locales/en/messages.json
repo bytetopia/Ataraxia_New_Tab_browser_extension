@@ -5,7 +5,7 @@
     },
 
     "update_content": {
-        "message": "We're back to pure Bing.com API for the respect of your privacy."
+        "message": "Welcome! We've made some optimizations to improve your experience."
     },
 
 
@@ -38,7 +38,19 @@
     },
 
     "btr_change_wallpaper_btn": {
-        "message": "change another wallpaper"
+        "message": "previous day wallpaper"
+    },
+
+    "btr_change_wallpaper_next_btn": {
+        "message": "next day wallpaper"
+    },
+
+    "btr_wallpaper_oldest_toast": {
+        "message": "Already showing the oldest available wallpaper (7 days ago)."
+    },
+
+    "btr_wallpaper_today_toast": {
+        "message": "Already showing today's wallpaper."
     },
 
     "btr_download_wallpaper_btn": {

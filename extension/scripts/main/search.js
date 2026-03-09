@@ -17,7 +17,7 @@ function renderEngine(conf) {
 	// set logo
 	var search_logo = document.getElementById('search-logo');
 	search_logo.src = conf['icon'];
-	search_logo.style = conf['css_style'];
+	search_logo.style.cssText = conf['css_style'];
 	
 	// set form
 	document.getElementById('search-form').action = conf['action'];

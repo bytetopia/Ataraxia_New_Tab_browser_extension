@@ -6,8 +6,8 @@
   "author": "Anthony",
   "homepage_url": "https://idealland.app/ataraxia/",
   "description": "__MSG_extension_desc__",
-  "version": "1.7",
-  "version_name": "1.7",
+  "version": "1.8",
+  "version_name": "1.8",
   "incognito": "split",
   "chrome_url_overrides": {
     "newtab": "blank.html"

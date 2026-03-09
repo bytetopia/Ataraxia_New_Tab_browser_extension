@@ -114,7 +114,31 @@
     },
 
     "op_custom_bkmk_prompt": {
-        "message": "Edit JSON to add links you want to display:"
+        "message": "Drag to reorder. Click Edit to modify or Delete to remove a bookmark."
+    },
+
+    "op_bkmk_add_btn": {
+        "message": "+ Add Bookmark"
+    },
+
+    "op_bkmk_modal_add_title": {
+        "message": "Add Bookmark"
+    },
+
+    "op_bkmk_modal_edit_title": {
+        "message": "Edit Bookmark"
+    },
+
+    "op_bkmk_field_name": {
+        "message": "Name"
+    },
+
+    "op_bkmk_field_url": {
+        "message": "URL"
+    },
+
+    "op_bkmk_required": {
+        "message": "Name and URL are required."
     },
 
     "op_wallpaper_uhd_hint1": {

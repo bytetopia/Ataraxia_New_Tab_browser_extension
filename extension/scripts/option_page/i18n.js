@@ -56,6 +56,12 @@ function i18n_quick_link_tab() {
 	document.getElementById("custom-bkmk-prompt").innerHTML = i18n('op_custom_bkmk_prompt');
 	document.getElementById("close-top-sites-btn").innerHTML = i18n('op_close_top_sites_btn');
 	document.getElementById("open-top-sites-btn").innerHTML = i18n('op_open_top_sites_btn');
+	document.getElementById("add-bookmark-btn").innerHTML = i18n('op_bkmk_add_btn');
+	// bookmark modal static labels
+	document.getElementById("bkmk-label-name").innerHTML = i18n('op_bkmk_field_name');
+	document.getElementById("bkmk-label-url").innerHTML = i18n('op_bkmk_field_url');
+	document.getElementById("bkmk-modal-cancel").innerHTML = i18n('op_se_modal_cancel');
+	document.getElementById("bkmk-modal-confirm").innerHTML = i18n('op_se_modal_save');
 }
 
 function i18n_wallpaper_tab() {

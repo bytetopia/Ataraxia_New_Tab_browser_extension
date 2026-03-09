@@ -113,7 +113,31 @@
     },
 
     "op_custom_bkmk_prompt": {
-        "message": "自定義要顯示的鏈接："
+        "message": "拖拽可調整順序。點擊「編輯」修改，點擊「刪除」移除書籤。"
+    },
+
+    "op_bkmk_add_btn": {
+        "message": "+ 添加書籤"
+    },
+
+    "op_bkmk_modal_add_title": {
+        "message": "添加書籤"
+    },
+
+    "op_bkmk_modal_edit_title": {
+        "message": "編輯書籤"
+    },
+
+    "op_bkmk_field_name": {
+        "message": "名稱"
+    },
+
+    "op_bkmk_field_url": {
+        "message": "連結"
+    },
+
+    "op_bkmk_required": {
+        "message": "名稱和連結不能為空。"
     },
 
     "op_wallpaper_uhd_hint1": {

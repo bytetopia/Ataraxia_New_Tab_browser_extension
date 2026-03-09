@@ -18,6 +18,10 @@
 .DS_Store
 .idea
 **/.turbo
+.claude
+
+# zip packages
+*.zip
 
 # compiled
 apps/chrome-extension/public/manifest.json

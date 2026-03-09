@@ -89,7 +89,7 @@
     },
 
     "op_search_prompt": {
-        "message": "修改 JSON 配置，您可以調整搜索引擎順序，刪除某些搜索引擎，或添加更多搜索引擎。"
+        "message": "拖拽可調整順序。點擊「編輯」修改，點擊「刪除」移除搜索引擎。"
     },
 
     "op_show_search_checkbox_prompt": {
@@ -166,6 +166,70 @@
 
     "op_top_site_perm_fail": {
         "message": "授權失敗，功能無法開啟。請您重試，並允許授予權限。"
+    },
+
+    "op_se_add_btn": {
+        "message": "+ 添加搜索引擎"
+    },
+
+    "op_se_modal_add_title": {
+        "message": "添加搜索引擎"
+    },
+
+    "op_se_modal_edit_title": {
+        "message": "編輯搜索引擎"
+    },
+
+    "op_se_field_name": {
+        "message": "名稱"
+    },
+
+    "op_se_field_icon": {
+        "message": "圖示路徑"
+    },
+
+    "op_se_field_icon_hint": {
+        "message": "使用內建圖示，或輸入網際網路上的圖示網址。"
+    },
+
+    "op_se_field_action": {
+        "message": "搜索 URL"
+    },
+
+    "op_se_field_param": {
+        "message": "查詢參數名"
+    },
+
+    "op_se_field_param_hint": {
+        "message": "URL 中攜帶搜索關鍵詞的參數名（如 q、wd、query）。"
+    },
+
+    "op_se_field_css": {
+        "message": "圖示 CSS 樣式"
+    },
+
+    "op_se_field_css_hint": {
+        "message": "應用於新標籤頁圖示圖片的 CSS 樣式。"
+    },
+
+    "op_se_btn_edit": {
+        "message": "編輯"
+    },
+
+    "op_se_btn_delete": {
+        "message": "刪除"
+    },
+
+    "op_se_modal_cancel": {
+        "message": "取消"
+    },
+
+    "op_se_modal_save": {
+        "message": "確定"
+    },
+
+    "op_se_name_required": {
+        "message": "名稱不能為空。"
     },
 
     "placeholder": {

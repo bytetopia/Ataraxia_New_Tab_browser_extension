@@ -90,7 +90,7 @@
     },
 
     "op_search_prompt": {
-        "message": "Edit JSON config to adjust search engines. You can change the order / delete or add search engines."
+        "message": "Drag to reorder. Click Edit to modify or Delete to remove a search engine."
     },
 
     "op_show_search_checkbox_prompt": {
@@ -167,6 +167,70 @@
 
     "op_top_site_perm_fail": {
         "message": "Authorization failed, feature cannot be turned on. Please try again and grant the permission."
+    },
+
+    "op_se_add_btn": {
+        "message": "+ Add Search Engine"
+    },
+
+    "op_se_modal_add_title": {
+        "message": "Add Search Engine"
+    },
+
+    "op_se_modal_edit_title": {
+        "message": "Edit Search Engine"
+    },
+
+    "op_se_field_name": {
+        "message": "Name"
+    },
+
+    "op_se_field_icon": {
+        "message": "Icon path"
+    },
+
+    "op_se_field_icon_hint": {
+        "message": "Use a built-in icon, or enter a URL to an icon from the internet."
+    },
+
+    "op_se_field_action": {
+        "message": "Search URL"
+    },
+
+    "op_se_field_param": {
+        "message": "Query parameter name"
+    },
+
+    "op_se_field_param_hint": {
+        "message": "The URL parameter that carries the search keyword (e.g. q, wd, query)."
+    },
+
+    "op_se_field_css": {
+        "message": "Icon CSS style"
+    },
+
+    "op_se_field_css_hint": {
+        "message": "CSS applied to the icon image on the new tab page."
+    },
+
+    "op_se_btn_edit": {
+        "message": "Edit"
+    },
+
+    "op_se_btn_delete": {
+        "message": "Delete"
+    },
+
+    "op_se_modal_cancel": {
+        "message": "Cancel"
+    },
+
+    "op_se_modal_save": {
+        "message": "OK"
+    },
+
+    "op_se_name_required": {
+        "message": "Name is required."
     },
 
     "placeholder": {

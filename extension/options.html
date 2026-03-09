@@ -10,6 +10,7 @@
       body {
         width: 100%;
         padding: 20px 40px;
+        box-sizing: border-box;
       }
       .mui-tabs__pane {
         padding: 20px;
@@ -29,6 +30,251 @@
       #version-code-span {
         color: #009eee;
       }
+
+      /* Search engine visual editor */
+      #search-engine-list {
+        margin-bottom: 12px;
+      }
+      .se-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 12px;
+        margin-bottom: 8px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        background: #fafafa;
+        position: relative;
+      }
+      .se-item:hover {
+        border-color: #009eee;
+        background: #f0faff;
+      }
+      .se-drag-handle {
+        cursor: grab;
+        color: #bbb;
+        font-size: 18px;
+        user-select: none;
+        padding: 0 4px;
+        flex-shrink: 0;
+      }
+      .se-drag-handle:active {
+        cursor: grabbing;
+      }
+      .se-icon-wrap {
+        width: 40px;
+        height: 40px;
+        background: #444;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .se-icon-preview {
+        width: 28px;
+        height: 28px;
+        object-fit: contain;
+      }
+      .se-name {
+        font-weight: bold;
+        font-size: 14px;
+        min-width: 90px;
+        color: #333;
+      }
+      .se-url {
+        font-size: 12px;
+        color: #888;
+        flex: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .se-btn-edit, .se-btn-delete {
+        flex-shrink: 0;
+        border: none;
+        border-radius: 4px;
+        padding: 4px 10px;
+        cursor: pointer;
+        font-size: 12px;
+      }
+      .se-btn-edit {
+        background: #e3f2fd;
+        color: #1565c0;
+      }
+      .se-btn-edit:hover { background: #bbdefb; }
+      .se-btn-delete {
+        background: #fce4ec;
+        color: #c62828;
+      }
+      .se-btn-delete:hover { background: #f8bbd0; }
+
+      #add-search-engine-btn {
+        margin-bottom: 16px;
+      }
+
+      /* Modal */
+      #se-modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0,0,0,0.45);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+      }
+      #se-modal-overlay.active {
+        display: flex;
+      }
+      #se-modal {
+        background: #fff;
+        border-radius: 10px;
+        padding: 28px 32px;
+        min-width: 420px;
+        max-width: 560px;
+        width: 100%;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      }
+      #se-modal h3 {
+        margin: 0 0 18px 0;
+        font-size: 16px;
+        color: #333;
+      }
+      .se-field {
+        margin-bottom: 14px;
+      }
+      .se-field label {
+        display: block;
+        font-size: 12px;
+        color: #666;
+        margin-bottom: 4px;
+        font-weight: bold;
+      }
+      .se-field input {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 7px 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 13px;
+      }
+      .se-field input:focus {
+        outline: none;
+        border-color: #009eee;
+      }
+      .se-field .se-field-hint {
+        font-size: 11px;
+        color: #aaa;
+        margin-top: 3px;
+      }
+      .se-modal-actions {
+        display: flex;
+        gap: 8px;
+        justify-content: flex-end;
+        margin-top: 20px;
+      }
+
+      /* drag-over highlight */
+      .se-item.drag-over {
+        border: 2px dashed #009eee;
+        background: #e0f7fa;
+      }
+      .se-item.dragging {
+        opacity: 0.4;
+      }
+
+      /* Bookmark visual editor */
+      #bookmark-list {
+        margin-bottom: 12px;
+      }
+      .bkmk-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 12px;
+        margin-bottom: 8px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        background: #fafafa;
+      }
+      .bkmk-item:hover {
+        border-color: #009eee;
+        background: #f0faff;
+      }
+      .bkmk-drag-handle {
+        cursor: grab;
+        color: #bbb;
+        font-size: 18px;
+        user-select: none;
+        padding: 0 4px;
+        flex-shrink: 0;
+      }
+      .bkmk-drag-handle:active { cursor: grabbing; }
+      .bkmk-name {
+        font-weight: bold;
+        font-size: 14px;
+        min-width: 120px;
+        color: #333;
+      }
+      .bkmk-url {
+        font-size: 12px;
+        color: #888;
+        flex: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .bkmk-btn-edit, .bkmk-btn-delete {
+        flex-shrink: 0;
+        border: none;
+        border-radius: 4px;
+        padding: 4px 10px;
+        cursor: pointer;
+        font-size: 12px;
+      }
+      .bkmk-btn-edit {
+        background: #e3f2fd;
+        color: #1565c0;
+      }
+      .bkmk-btn-edit:hover { background: #bbdefb; }
+      .bkmk-btn-delete {
+        background: #fce4ec;
+        color: #c62828;
+      }
+      .bkmk-btn-delete:hover { background: #f8bbd0; }
+      #add-bookmark-btn {
+        margin-bottom: 16px;
+      }
+      /* Bookmark modal */
+      #bkmk-modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0,0,0,0.45);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+      }
+      #bkmk-modal-overlay.active { display: flex; }
+      #bkmk-modal {
+        background: #fff;
+        border-radius: 10px;
+        padding: 28px 32px;
+        min-width: 420px;
+        max-width: 560px;
+        width: 100%;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      }
+      #bkmk-modal h3 {
+        margin: 0 0 18px 0;
+        font-size: 16px;
+        color: #333;
+      }
+      .bkmk-item.drag-over {
+        border: 2px dashed #009eee;
+        background: #e0f7fa;
+      }
+      .bkmk-item.dragging { opacity: 0.4; }
     </style>
   </head>
   <body>
@@ -47,11 +293,16 @@
 
     <!-- TAB search engine -->
     <div class="mui-tabs__pane mui--is-active" id="pane-default-1">
-      <p id="search-prompt">Edit JSON config to adjust search engines. You can change the order / delete or add search engines.</p>
-      <textarea id="search-engine-textarea"></textarea>
-      <br/>
+      <p id="search-prompt">Drag to reorder. Click Edit to modify or Delete to remove a search engine.</p>
+
+      <div id="search-engine-list">
+        <!-- engine items rendered by JS -->
+      </div>
+
+      <button id="add-search-engine-btn" class="mui-btn mui-btn--default">+ Add Search Engine</button>
+
       <div class="mui-checkbox">
-        <label >
+        <label>
           <input id="show-search-engine-checkbox" type="checkbox" value="">
           <span id="show-search-engine-checkbox-text">Show search input box</span>
         </label>
@@ -62,6 +313,40 @@
     </div>
     <!-- END TAB search engine -->
 
+    <!-- Search Engine Edit Modal -->
+    <div id="se-modal-overlay">
+      <div id="se-modal">
+        <h3 id="se-modal-title">Add Search Engine</h3>
+        <div class="se-field">
+          <label id="se-label-name">Name</label>
+          <input id="se-field-name" type="text" placeholder="e.g. Google">
+        </div>
+        <div class="se-field">
+          <label id="se-label-icon">Icon path</label>
+          <input id="se-field-icon" type="text" placeholder="icons/google.png">
+          <div class="se-field-hint" id="se-hint-icon">Use a built-in icon, or enter a URL to an icon from the internet.</div>
+        </div>
+        <div class="se-field">
+          <label id="se-label-action">Search URL</label>
+          <input id="se-field-action" type="text" placeholder="https://google.com/search">
+        </div>
+        <div class="se-field">
+          <label id="se-label-param">Query parameter name</label>
+          <input id="se-field-param" type="text" placeholder="q">
+          <div class="se-field-hint" id="se-hint-param">The URL parameter that carries the search keyword (e.g. q, wd, query).</div>
+        </div>
+        <div class="se-field">
+          <label id="se-label-css">Icon CSS style</label>
+          <input id="se-field-css" type="text" placeholder="height: 40px; margin: 15px 10px;">
+          <div class="se-field-hint" id="se-hint-css">CSS applied to the icon image on the new tab page.</div>
+        </div>
+        <div class="se-modal-actions">
+          <button id="se-modal-cancel" class="mui-btn mui-btn--flat">Cancel</button>
+          <button id="se-modal-confirm" class="mui-btn mui-btn--primary">OK</button>
+        </div>
+      </div>
+    </div>
+
     <!-- TAB Links -->
     <div class="mui-tabs__pane" id="pane-default-2">
       <p id="quick-link-prompt">Customize the Quick Links to be displayed in the upper right.</p>
@@ -70,13 +355,35 @@
       <button id="close-top-sites-btn" class="mui-btn mui-btn--primary">Open. Click to close.</button>
       <button id="open-top-sites-btn" class="mui-btn mui-btn--accent">Closed. Click to open.</button>
       <hr/>
-      <p id="custom-bkmk-prompt">Edit JSON to add links you want to display:</p>
-      <textarea id="custom-bkmk-textarea"></textarea>
+      <p id="custom-bkmk-prompt">Drag to reorder. Click Edit to modify or Delete to remove a bookmark.</p>
+      <div id="bookmark-list">
+        <!-- bookmark items rendered by JS -->
+      </div>
+      <button id="add-bookmark-btn" class="mui-btn mui-btn--default">+ Add Bookmark</button>
       <br/>
       <button id="save-custom-bkmk-conf" class="mui-btn mui-btn--primary op-btn-save-this">Save and apply</button>
       <button id="recover-custom-bkmk-conf" class="mui-btn mui-btn--flat mui-btn--primary op-btn-reset-default">Reset to default</button>
     </div>
     <!-- END TAB links -->
+
+    <!-- Bookmark Edit Modal -->
+    <div id="bkmk-modal-overlay">
+      <div id="bkmk-modal">
+        <h3 id="bkmk-modal-title">Add Bookmark</h3>
+        <div class="se-field">
+          <label id="bkmk-label-name">Name</label>
+          <input id="bkmk-field-name" type="text" placeholder="e.g. GitHub">
+        </div>
+        <div class="se-field">
+          <label id="bkmk-label-url">URL</label>
+          <input id="bkmk-field-url" type="text" placeholder="https://github.com">
+        </div>
+        <div class="se-modal-actions">
+          <button id="bkmk-modal-cancel" class="mui-btn mui-btn--flat">Cancel</button>
+          <button id="bkmk-modal-confirm" class="mui-btn mui-btn--primary">OK</button>
+        </div>
+      </div>
+    </div>
 
     <!-- TAB wallpapers -->
     <div class="mui-tabs__pane" id="pane-default-3">

@@ -35,7 +35,18 @@ function i18n_op_common_btns() {
 function i18n_search_engine_tab() {
 	document.getElementById("search-prompt").innerHTML = i18n('op_search_prompt');
 	document.getElementById("show-search-engine-checkbox-text").innerHTML = i18n('op_show_search_checkbox_prompt');
-	
+	document.getElementById("add-search-engine-btn").innerHTML = i18n('op_se_add_btn');
+	// modal static labels
+	document.getElementById("se-label-name").innerHTML = i18n('op_se_field_name');
+	document.getElementById("se-label-icon").innerHTML = i18n('op_se_field_icon');
+	document.getElementById("se-hint-icon").innerHTML = i18n('op_se_field_icon_hint');
+	document.getElementById("se-label-action").innerHTML = i18n('op_se_field_action');
+	document.getElementById("se-label-param").innerHTML = i18n('op_se_field_param');
+	document.getElementById("se-hint-param").innerHTML = i18n('op_se_field_param_hint');
+	document.getElementById("se-label-css").innerHTML = i18n('op_se_field_css');
+	document.getElementById("se-hint-css").innerHTML = i18n('op_se_field_css_hint');
+	document.getElementById("se-modal-cancel").innerHTML = i18n('op_se_modal_cancel');
+	document.getElementById("se-modal-confirm").innerHTML = i18n('op_se_modal_save');
 }
 
 // quick link tab
@@ -45,6 +56,12 @@ function i18n_quick_link_tab() {
 	document.getElementById("custom-bkmk-prompt").innerHTML = i18n('op_custom_bkmk_prompt');
 	document.getElementById("close-top-sites-btn").innerHTML = i18n('op_close_top_sites_btn');
 	document.getElementById("open-top-sites-btn").innerHTML = i18n('op_open_top_sites_btn');
+	document.getElementById("add-bookmark-btn").innerHTML = i18n('op_bkmk_add_btn');
+	// bookmark modal static labels
+	document.getElementById("bkmk-label-name").innerHTML = i18n('op_bkmk_field_name');
+	document.getElementById("bkmk-label-url").innerHTML = i18n('op_bkmk_field_url');
+	document.getElementById("bkmk-modal-cancel").innerHTML = i18n('op_se_modal_cancel');
+	document.getElementById("bkmk-modal-confirm").innerHTML = i18n('op_se_modal_save');
 }
 
 function i18n_wallpaper_tab() {

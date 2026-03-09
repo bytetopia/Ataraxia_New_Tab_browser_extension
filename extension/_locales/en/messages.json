@@ -5,7 +5,7 @@
     },
 
     "update_content": {
-        "message": "We're back to pure Bing.com API for the respect of your privacy."
+        "message": "Welcome! We've made some optimizations to improve your experience."
     },
 
 
@@ -38,7 +38,19 @@
     },
 
     "btr_change_wallpaper_btn": {
-        "message": "change another wallpaper"
+        "message": "previous day wallpaper"
+    },
+
+    "btr_change_wallpaper_next_btn": {
+        "message": "next day wallpaper"
+    },
+
+    "btr_wallpaper_oldest_toast": {
+        "message": "Already showing the oldest available wallpaper (7 days ago)."
+    },
+
+    "btr_wallpaper_today_toast": {
+        "message": "Already showing today's wallpaper."
     },
 
     "btr_download_wallpaper_btn": {
@@ -78,7 +90,7 @@
     },
 
     "op_search_prompt": {
-        "message": "Edit JSON config to adjust search engines. You can change the order / delete or add search engines."
+        "message": "Drag to reorder. Click Edit to modify or Delete to remove a search engine."
     },
 
     "op_show_search_checkbox_prompt": {
@@ -102,7 +114,31 @@
     },
 
     "op_custom_bkmk_prompt": {
-        "message": "Edit JSON to add links you want to display:"
+        "message": "Drag to reorder. Click Edit to modify or Delete to remove a bookmark."
+    },
+
+    "op_bkmk_add_btn": {
+        "message": "+ Add Bookmark"
+    },
+
+    "op_bkmk_modal_add_title": {
+        "message": "Add Bookmark"
+    },
+
+    "op_bkmk_modal_edit_title": {
+        "message": "Edit Bookmark"
+    },
+
+    "op_bkmk_field_name": {
+        "message": "Name"
+    },
+
+    "op_bkmk_field_url": {
+        "message": "URL"
+    },
+
+    "op_bkmk_required": {
+        "message": "Name and URL are required."
     },
 
     "op_wallpaper_uhd_hint1": {
@@ -155,6 +191,70 @@
 
     "op_top_site_perm_fail": {
         "message": "Authorization failed, feature cannot be turned on. Please try again and grant the permission."
+    },
+
+    "op_se_add_btn": {
+        "message": "+ Add Search Engine"
+    },
+
+    "op_se_modal_add_title": {
+        "message": "Add Search Engine"
+    },
+
+    "op_se_modal_edit_title": {
+        "message": "Edit Search Engine"
+    },
+
+    "op_se_field_name": {
+        "message": "Name"
+    },
+
+    "op_se_field_icon": {
+        "message": "Icon path"
+    },
+
+    "op_se_field_icon_hint": {
+        "message": "Use a built-in icon, or enter a URL to an icon from the internet."
+    },
+
+    "op_se_field_action": {
+        "message": "Search URL"
+    },
+
+    "op_se_field_param": {
+        "message": "Query parameter name"
+    },
+
+    "op_se_field_param_hint": {
+        "message": "The URL parameter that carries the search keyword (e.g. q, wd, query)."
+    },
+
+    "op_se_field_css": {
+        "message": "Icon CSS style"
+    },
+
+    "op_se_field_css_hint": {
+        "message": "CSS applied to the icon image on the new tab page."
+    },
+
+    "op_se_btn_edit": {
+        "message": "Edit"
+    },
+
+    "op_se_btn_delete": {
+        "message": "Delete"
+    },
+
+    "op_se_modal_cancel": {
+        "message": "Cancel"
+    },
+
+    "op_se_modal_save": {
+        "message": "OK"
+    },
+
+    "op_se_name_required": {
+        "message": "Name is required."
     },
 
     "placeholder": {

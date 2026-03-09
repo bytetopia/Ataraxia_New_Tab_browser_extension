@@ -5,7 +5,7 @@
     },
 
     "update_content": {
-        "message": "回归纯净 Bing.com API，没有隐私后顾之忧。"
+        "message": "欢迎！我们做了一些优化，提升你的使用体验。"
     },
 
 
@@ -38,7 +38,19 @@
     },
 
     "btr_change_wallpaper_btn": {
-        "message": "换一张背景图"
+        "message": "切换到前一天的壁纸"
+    },
+
+    "btr_change_wallpaper_next_btn": {
+        "message": "切换到后一天的壁纸"
+    },
+
+    "btr_wallpaper_oldest_toast": {
+        "message": "已经是最早的壁纸了（7天前）。"
+    },
+
+    "btr_wallpaper_today_toast": {
+        "message": "已经是今天的壁纸了。"
     },
 
     "btr_download_wallpaper_btn": {
@@ -78,7 +90,7 @@
     },
 
     "op_search_prompt": {
-        "message": "修改 JSON 配置，您可以调整搜索引擎顺序，删除某些搜索引擎，或添加更多搜索引擎。"
+        "message": "拖拽可调整顺序。点击「编辑」修改，点击「删除」移除搜索引擎。"
     },
 
     "op_show_search_checkbox_prompt": {
@@ -102,7 +114,31 @@
     },
 
     "op_custom_bkmk_prompt": {
-        "message": "自定义要显示的链接："
+        "message": "拖拽可调整顺序。点击「编辑」修改，点击「删除」移除书签。"
+    },
+
+    "op_bkmk_add_btn": {
+        "message": "+ 添加书签"
+    },
+
+    "op_bkmk_modal_add_title": {
+        "message": "添加书签"
+    },
+
+    "op_bkmk_modal_edit_title": {
+        "message": "编辑书签"
+    },
+
+    "op_bkmk_field_name": {
+        "message": "名称"
+    },
+
+    "op_bkmk_field_url": {
+        "message": "链接"
+    },
+
+    "op_bkmk_required": {
+        "message": "名称和链接不能为空。"
     },
 
     "op_wallpaper_uhd_hint1": {
@@ -157,6 +193,70 @@
         "message": "授权失败，功能无法开启。请您重试，并允许授予权限。"
     },
     
+    "op_se_add_btn": {
+        "message": "+ 添加搜索引擎"
+    },
+
+    "op_se_modal_add_title": {
+        "message": "添加搜索引擎"
+    },
+
+    "op_se_modal_edit_title": {
+        "message": "编辑搜索引擎"
+    },
+
+    "op_se_field_name": {
+        "message": "名称"
+    },
+
+    "op_se_field_icon": {
+        "message": "图标路径"
+    },
+
+    "op_se_field_icon_hint": {
+        "message": "使用内置图标，或输入互联网上的图标网址。"
+    },
+
+    "op_se_field_action": {
+        "message": "搜索 URL"
+    },
+
+    "op_se_field_param": {
+        "message": "查询参数名"
+    },
+
+    "op_se_field_param_hint": {
+        "message": "URL 中携带搜索关键词的参数名（如 q、wd、query）。"
+    },
+
+    "op_se_field_css": {
+        "message": "图标 CSS 样式"
+    },
+
+    "op_se_field_css_hint": {
+        "message": "应用于新标签页图标图片的 CSS 样式。"
+    },
+
+    "op_se_btn_edit": {
+        "message": "编辑"
+    },
+
+    "op_se_btn_delete": {
+        "message": "删除"
+    },
+
+    "op_se_modal_cancel": {
+        "message": "取消"
+    },
+
+    "op_se_modal_save": {
+        "message": "确定"
+    },
+
+    "op_se_name_required": {
+        "message": "名称不能为空。"
+    },
+
     "placeholder": {
         "message": "placeholder"
     }

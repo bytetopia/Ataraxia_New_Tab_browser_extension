@@ -1,5 +1,10 @@
 /* main */
+html {
+	height: 100%;
+}
+
 body {
+	height: 100%;
 	background-repeat: no-repeat;
 	background-size:cover;
 	background-position:center center;
@@ -23,6 +28,7 @@ body {
 }
 
 #search-input {
+	box-sizing: border-box;
 	background-color: rgba(255,255,255,0.7);
 	float:left;
 	margin: 10px;
@@ -97,7 +103,7 @@ body {
 	border-top: 2px solid #3498db;
 	width: 20px;
 	height: 20px;
-	margin: 0 10px 10px 0;
+	margin: 10px 10px 10px 0;
 	-webkit-animation: spin 2s linear infinite;
 	animation: spin 2s linear infinite;
 	display: none;
@@ -123,6 +129,11 @@ body {
 	display: none;
 }
 
+#change-wallpaper-next {
+	padding-right: 5px;
+	display: none;
+}
+
 #wallpaper-download-link {
 	padding-left: 8px;
 	display: none;
@@ -144,6 +155,10 @@ body {
 }
 
 #footer-op:hover #change-wallpaper{
+	display: inline-block;
+}
+
+#footer-op:hover #change-wallpaper-next{
 	display: inline-block;
 }
 

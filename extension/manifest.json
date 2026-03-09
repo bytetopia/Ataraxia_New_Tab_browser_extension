@@ -4,21 +4,21 @@
   "short_name": "Ataraxia",
   "default_locale": "en",
   "author": "Anthony",
-  "homepage_url"    : "https://idealland.app/ataraxia/",
+  "homepage_url": "https://idealland.app/ataraxia/",
   "description": "__MSG_extension_desc__",
-  "version": "1.7",
+  "version": "1.8",
+  "version_name": "1.8",
   "incognito": "split",
   "chrome_url_overrides": {
     "newtab": "blank.html"
   },
   "icons": {
-    "16": "./ata_16.png",
-    "32": "./ata_32.png",
-    "48": "./ata_48.png",
-    "128": "./ata_128.png"
+    "16": "ata_16.png",
+    "32": "ata_32.png",
+    "48": "ata_48.png",
+    "128": "ata_128.png"
   },
-  "permissions": [
-  ],
+  "permissions": [],
   "optional_permissions": [
     "topSites"
   ],

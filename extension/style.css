@@ -5,6 +5,8 @@ html {
 
 body {
 	height: 100%;
+	margin: 0;
+	background-image: url('./images/john-reign-abarintos-369080-unsplash.jpg');
 	background-repeat: no-repeat;
 	background-size:cover;
 	background-position:center center;

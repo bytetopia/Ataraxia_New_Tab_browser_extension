@@ -58,6 +58,12 @@ body {
 
 #functions-nav {
 	float: right;
+	opacity: 0.3;
+	transition: opacity 0.2s ease;
+}
+
+#functions-nav:hover {
+	opacity: 1;
 }
 
 #functions-child {
@@ -124,6 +130,12 @@ body {
 #footer-op {
 	padding: 5px 10px;
 	border-radius: 5px;
+	opacity: 0.5;
+	transition: opacity 0.2s ease;
+}
+
+#footer-op:hover {
+	opacity: 1;
 }
 
 #change-wallpaper {

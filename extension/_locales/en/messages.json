@@ -5,7 +5,7 @@
     },
 
     "update_content": {
-        "message": "Welcome! We've made some optimizations to improve your experience."
+        "message": "Search feature removed for a cleaner, more focused experience."
     },
 
 
@@ -18,15 +18,7 @@
     },
 
     "extension_desc": {
-        "message": "Simple new tab with beautiful daily wallpaper. Start search with your favorite search engine."
-    },
-
-    "search_logo_hover_tip": {
-        "message": "click to switch search engine"
-    },
-
-    "search_with_placeholder": {
-        "message": "Search with ENGINE"
+        "message": "Simple new tab with beautiful daily wallpaper from Bing."
     },
 
     "tpr_check_update_btn": {
@@ -65,10 +57,6 @@
         "message": "Ataraxia Settings"
     },
 
-    "op_nav_search_engine": {
-        "message": "Search Engine"
-    },
-
     "op_nav_quick_links": {
         "message": "Quick Links"
     },
@@ -87,14 +75,6 @@
 
     "op_btn_reset_default": {
         "message": "Reset to default"
-    },
-
-    "op_search_prompt": {
-        "message": "Drag to reorder. Click Edit to modify or Delete to remove a search engine."
-    },
-
-    "op_show_search_checkbox_prompt": {
-        "message": "Show search input box"
     },
 
     "op_quick_link_prompt": {
@@ -193,50 +173,6 @@
         "message": "Authorization failed, feature cannot be turned on. Please try again and grant the permission."
     },
 
-    "op_se_add_btn": {
-        "message": "+ Add Search Engine"
-    },
-
-    "op_se_modal_add_title": {
-        "message": "Add Search Engine"
-    },
-
-    "op_se_modal_edit_title": {
-        "message": "Edit Search Engine"
-    },
-
-    "op_se_field_name": {
-        "message": "Name"
-    },
-
-    "op_se_field_icon": {
-        "message": "Icon path"
-    },
-
-    "op_se_field_icon_hint": {
-        "message": "Use a built-in icon, or enter a URL to an icon from the internet."
-    },
-
-    "op_se_field_action": {
-        "message": "Search URL"
-    },
-
-    "op_se_field_param": {
-        "message": "Query parameter name"
-    },
-
-    "op_se_field_param_hint": {
-        "message": "The URL parameter that carries the search keyword (e.g. q, wd, query)."
-    },
-
-    "op_se_field_css": {
-        "message": "Icon CSS style"
-    },
-
-    "op_se_field_css_hint": {
-        "message": "CSS applied to the icon image on the new tab page."
-    },
-
     "op_se_btn_edit": {
         "message": "Edit"
     },
@@ -251,10 +187,6 @@
 
     "op_se_modal_save": {
         "message": "OK"
-    },
-
-    "op_se_name_required": {
-        "message": "Name is required."
     },
 
     "placeholder": {

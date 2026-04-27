@@ -5,7 +5,7 @@
     },
 
     "update_content": {
-        "message": "欢迎！我们做了一些优化，提升你的使用体验。"
+        "message": "移除搜索功能，回归纯净体验。"
     },
 
 
@@ -18,15 +18,7 @@
     },
 
     "extension_desc": {
-        "message": "极简新标签页。每日美图壁纸自动更新。支持多个搜索引擎。"
-    }, 
-
-    "search_logo_hover_tip": {
-        "message": "点击切换搜索引擎"
-    },
-
-    "search_with_placeholder": {
-        "message": "使用 ENGINE 搜索"
+        "message": "极简新标签页，每日美图壁纸自动更新。"
     },
 
     "tpr_check_update_btn": {
@@ -65,10 +57,6 @@
         "message": "Ataraxia 设置项"
     },
 
-    "op_nav_search_engine": {
-        "message": "搜索引擎"
-    },
-
     "op_nav_quick_links": {
         "message": "快捷链接"
     },
@@ -87,14 +75,6 @@
 
     "op_btn_reset_default": {
         "message": "恢复默认配置"
-    },
-
-    "op_search_prompt": {
-        "message": "拖拽可调整顺序。点击「编辑」修改，点击「删除」移除搜索引擎。"
-    },
-
-    "op_show_search_checkbox_prompt": {
-        "message": "显示搜索框"
     },
 
     "op_quick_link_prompt": {
@@ -192,50 +172,6 @@
     "op_top_site_perm_fail": {
         "message": "授权失败，功能无法开启。请您重试，并允许授予权限。"
     },
-    
-    "op_se_add_btn": {
-        "message": "+ 添加搜索引擎"
-    },
-
-    "op_se_modal_add_title": {
-        "message": "添加搜索引擎"
-    },
-
-    "op_se_modal_edit_title": {
-        "message": "编辑搜索引擎"
-    },
-
-    "op_se_field_name": {
-        "message": "名称"
-    },
-
-    "op_se_field_icon": {
-        "message": "图标路径"
-    },
-
-    "op_se_field_icon_hint": {
-        "message": "使用内置图标，或输入互联网上的图标网址。"
-    },
-
-    "op_se_field_action": {
-        "message": "搜索 URL"
-    },
-
-    "op_se_field_param": {
-        "message": "查询参数名"
-    },
-
-    "op_se_field_param_hint": {
-        "message": "URL 中携带搜索关键词的参数名（如 q、wd、query）。"
-    },
-
-    "op_se_field_css": {
-        "message": "图标 CSS 样式"
-    },
-
-    "op_se_field_css_hint": {
-        "message": "应用于新标签页图标图片的 CSS 样式。"
-    },
 
     "op_se_btn_edit": {
         "message": "编辑"
@@ -251,10 +187,6 @@
 
     "op_se_modal_save": {
         "message": "确定"
-    },
-
-    "op_se_name_required": {
-        "message": "名称不能为空。"
     },
 
     "placeholder": {

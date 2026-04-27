@@ -62,12 +62,8 @@ function readConf(key) {
 
 // ---- conf initializer ---- 
 
-/* 
-    Conf items: 
-        // search
-            - search_engine_list: Json list, available search engines
-            - current_search_engine: String, name of current search engine
-            - display_search_box: String(yes no), show search box or not
+/*
+    Conf items:
         // topSites
             - show_top_sites: String(yes no)
         // custom bookmarks
@@ -81,73 +77,13 @@ function readConf(key) {
         // version flag
             - last_open_version: String
     */
-        
+
 // initialize conf storage
 function initializeConf() {
     console.log("initialize conf ...");
 
-    // define default settings  
+    // define default settings
     var defaultSettings = {
-        search_engine_list: [
-            {
-                name: "Google", 
-                icon: "icons/google.png",
-                action: "https://google.com/search",
-                param_name: "q",
-                css_style: "height: 40px; margin: 15px 10px;"
-            },
-            {
-                name: "Bing", 
-                icon: "icons/bing.png",
-                action: "https://bing.com/search",
-                param_name: "q",
-                css_style: "height: 50px;  margin: 10px;"
-            },
-            {
-                name: "Baidu", 
-                icon: "icons/baidu.png",
-                action: "https://www.baidu.com/s",
-                param_name: "wd",
-                css_style: "height: 70px; margin-top: -10px;"
-            },
-            {
-                name: "Sogou", 
-                icon: "icons/sogou.png",
-                action: "https://www.sogou.com/web",
-                param_name: "query",
-                css_style: "height: 50px; margin: 10px;"
-            },
-            {
-                name: "Yahoo", 
-                icon: "icons/yahoo.png",
-                action: "https://search.yahoo.com/search",
-                param_name: "p",
-                css_style: "height: 35px; padding: 18px 10px;"
-            },
-            {
-                name: "Yandex", 
-                icon: "icons/yandex.png",
-                action: "https://yandex.com/search",
-                param_name: "text",
-                css_style: "height: 40px; padding: 15px 10px;"
-            },
-            {
-                name: "DuckDuckGo", 
-                icon: "icons/duckduckgo.png",
-                action: "https://duckduckgo.com/",
-                param_name: "q",
-                css_style: "height: 45px; padding: 10px;"
-            },
-            {
-                name: "360", 
-                icon: "icons/360.png",
-                action: "https://www.so.com/s",
-                param_name: "q",
-                css_style: "height: 40px; padding: 15px 10px;"
-            }
-        ],
-        current_search_engine: "Google",
-        display_search_box: "yes",
         show_top_sites: "no",
         custom_bkmk_list: [
             {

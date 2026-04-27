@@ -11,7 +11,6 @@ function i18n_display_title(){
 
 // nav bar
 function i18n_nav() {
-	document.getElementById("nav-search-engine").innerHTML = i18n('op_nav_search_engine');
 	document.getElementById("nav-quick-links").innerHTML = i18n('op_nav_quick_links');
 	document.getElementById("nav-wallpaper").innerHTML = i18n('op_nav_wallpaper');
 	document.getElementById("nav-about").innerHTML = i18n('op_nav_about');
@@ -29,24 +28,6 @@ function i18n_op_common_btns() {
 	for (var i=0; i<reset_btns.length; i++) {
 		reset_btns[i].innerHTML = i18n('op_btn_reset_default');
 	}
-}
-
-// search engine tab
-function i18n_search_engine_tab() {
-	document.getElementById("search-prompt").innerHTML = i18n('op_search_prompt');
-	document.getElementById("show-search-engine-checkbox-text").innerHTML = i18n('op_show_search_checkbox_prompt');
-	document.getElementById("add-search-engine-btn").innerHTML = i18n('op_se_add_btn');
-	// modal static labels
-	document.getElementById("se-label-name").innerHTML = i18n('op_se_field_name');
-	document.getElementById("se-label-icon").innerHTML = i18n('op_se_field_icon');
-	document.getElementById("se-hint-icon").innerHTML = i18n('op_se_field_icon_hint');
-	document.getElementById("se-label-action").innerHTML = i18n('op_se_field_action');
-	document.getElementById("se-label-param").innerHTML = i18n('op_se_field_param');
-	document.getElementById("se-hint-param").innerHTML = i18n('op_se_field_param_hint');
-	document.getElementById("se-label-css").innerHTML = i18n('op_se_field_css');
-	document.getElementById("se-hint-css").innerHTML = i18n('op_se_field_css_hint');
-	document.getElementById("se-modal-cancel").innerHTML = i18n('op_se_modal_cancel');
-	document.getElementById("se-modal-confirm").innerHTML = i18n('op_se_modal_save');
 }
 
 // quick link tab
@@ -85,7 +66,6 @@ function exec_i18n() {
 	i18n_display_title();
 	i18n_nav();
 	i18n_op_common_btns();
-	i18n_search_engine_tab();
 	i18n_quick_link_tab();
 	i18n_wallpaper_tab();
 	i18n_about_tab();

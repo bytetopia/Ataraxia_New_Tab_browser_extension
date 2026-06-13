@@ -18,13 +18,21 @@ function renderEngine(conf) {
 	var search_logo = document.getElementById('search-logo');
 	search_logo.src = conf['icon'];
 	search_logo.style.cssText = conf['css_style'];
-	
+
 	// set form
-	document.getElementById('search-form').action = conf['action'];
+	if (conf['action'] === 'chrome_search_api') {
+		document.getElementById('search-form').removeAttribute('action');
+	} else {
+		document.getElementById('search-form').action = conf['action'];
+	}
 	// set input
 	var search_input = document.getElementById('search-input');
 	search_input.name = conf['param_name'];
-	search_input.placeholder = i18n('search_with_placeholder').replace('ENGINE', conf['name']);
+	if (conf['action'] === 'chrome_search_api') {
+		search_input.placeholder = i18n('search_placeholder') || 'Search';
+	} else {
+		search_input.placeholder = i18n('search_with_placeholder').replace('ENGINE', conf['name']);
+	}
 }
 
 // switch to next search engine
@@ -79,6 +87,17 @@ function initSearchBoxDisplay() {
 	}
 }
 
+// handle form submit - use Chrome Search API for Default engine
+function handleSearchSubmit(e) {
+	if (getCurrentEngineName() === 'Default') {
+		e.preventDefault();
+		var query = document.getElementById('search-input').value.trim();
+		if (query) {
+			chrome.search.query({text: query, disposition: 'CURRENT_TAB'});
+		}
+	}
+}
+
 // --------------------------------------------------
 
 // show/hide search box
@@ -90,8 +109,9 @@ document.getElementById('search-logo').onclick = switchEngine;
 // init engine
 initEngine();
 
+// bind form submit handler
+document.getElementById('search-form').addEventListener('submit', handleSearchSubmit);
+
 // bind body click focus event
 document.getElementById('main-body').onclick = focusOnSearchInput;
-
-
 

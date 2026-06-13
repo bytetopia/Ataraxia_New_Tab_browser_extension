@@ -259,5 +259,9 @@
 
     "placeholder": {
         "message": "placeholder"
+    },
+
+    "search_placeholder": {
+        "message": "Search with Chrome"
     }
 }

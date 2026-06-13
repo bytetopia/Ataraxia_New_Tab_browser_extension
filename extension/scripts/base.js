@@ -90,7 +90,14 @@ function initializeConf() {
     var defaultSettings = {
         search_engine_list: [
             {
-                name: "Google", 
+                name: "Default",
+                icon: "icons/search_default.svg",
+                action: "chrome_search_api",
+                param_name: "q",
+                css_style: "height: 36px; margin: 17px 10px;"
+            },
+            {
+                name: "Google",
                 icon: "icons/google.png",
                 action: "https://google.com/search",
                 param_name: "q",
@@ -146,8 +153,8 @@ function initializeConf() {
                 css_style: "height: 40px; padding: 15px 10px;"
             }
         ],
-        current_search_engine: "Google",
-        display_search_box: "no",
+        current_search_engine: "Default",
+        display_search_box: "yes",
         show_top_sites: "no",
         custom_bkmk_list: [
             {
@@ -183,6 +190,19 @@ if (last_open_version == undefined || parseFloat(last_open_version) < parseFloat
     console.log("update from ", last_open_version, " to ", CURRENT_VERSION);
     // init conf
     initializeConf();
+
+    // migrate: ensure "Default" engine exists in the list for existing users
+    var engineList = readConf('search_engine_list');
+    if (engineList && !engineList.some(function(e) { return e.action === 'chrome_search_api'; })) {
+        engineList.unshift({
+            name: "Default",
+            icon: "icons/search_default.svg",
+            action: "chrome_search_api",
+            param_name: "q",
+            css_style: "height: 36px; margin: 17px 10px;"
+        });
+        writeConf('search_engine_list', engineList);
+    }
 
     // pop up update prompt
     spop('<h4 class="spop-title">' + i18n('you_have_updated_to_the_latest_version') + '</h4>' + i18n('update_content'), 'success');

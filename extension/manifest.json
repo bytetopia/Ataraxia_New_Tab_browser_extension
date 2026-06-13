@@ -6,8 +6,8 @@
   "author": "Anthony",
   "homepage_url": "https://idealland.app/ataraxia/",
   "description": "__MSG_extension_desc__",
-  "version": "2.1",
-  "version_name": "2.1",
+  "version": "2.2",
+  "version_name": "2.2",
   "incognito": "split",
   "chrome_url_overrides": {
     "newtab": "blank.html"
@@ -18,7 +18,7 @@
     "48": "ata_48.png",
     "128": "ata_128.png"
   },
-  "permissions": [],
+  "permissions": ["search"],
   "optional_permissions": [
     "topSites"
   ],

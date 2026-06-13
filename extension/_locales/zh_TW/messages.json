@@ -258,5 +258,9 @@
 
     "placeholder": {
         "message": "placeholder"
+    },
+
+    "search_placeholder": {
+        "message": "使用 Chrome 搜尋"
     }
 }

@@ -84,6 +84,8 @@ function initSearchBoxDisplay() {
 		document.getElementById('search-box-whole-block').style.display = 'none';
 	} else {
 		document.getElementById('search-box-whole-block').style.display = 'block';
+		document.getElementById('functions-nav').style.opacity = '0.8';
+		document.getElementById('footer-op').style.opacity = '0.8';
 	}
 }
 
